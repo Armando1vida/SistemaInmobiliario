@@ -8,9 +8,11 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'SistemaInmobiliario',
     'language' => 'es',
-    
     // preloading 'log' component
-    'preload' => array('log'),
+    'preload' => array(
+        'log',
+        'bootstrap',
+    ),
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -29,6 +31,11 @@ return array(
     ),
     // application components
     'components' => array(
+        'bootstrap' => array(
+            'class' => 'ext.bootstrap.components.Bootstrap',
+            'responsiveCss' => true,
+            'ajaxCssLoad' => false,
+        ),
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
