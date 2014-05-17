@@ -8,11 +8,14 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'SistemaInmobiliario',
     'language' => 'es',
+         'theme' => 'adminlab',
+
     // preloading 'log' component
     'preload' => array(
         'log',
         'bootstrap',
     ),
+    
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -88,6 +91,6 @@ return array(
     // using Yii::app()->params['paramName']
     'params' => array(
         // this is used in contact page
-        'adminEmail' => 'webmaster@example.com',
+        'adminEmail' => 'armand1live@gmail.com',
     ),
 );

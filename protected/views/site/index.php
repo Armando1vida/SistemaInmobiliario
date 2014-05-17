@@ -18,12 +18,3 @@ $this->pageTitle=Yii::app()->name;
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
-<!--
-<div class="container">
-    <div class="row-fluid">
-        <div class="span-12">
-            <h1 class="text-info text-center"> hola a todos</h1>
-        </div>
-    </div>
-</div>-->
-
