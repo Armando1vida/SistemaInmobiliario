@@ -26,44 +26,44 @@ body {
 
 @font-face {
     font-family: 'MyriadPro-Bold';
-    src: url('../fonts/myriadprobold.eot');
-    src: url('../fonts/myriadprobold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/myriadprobold.woff') format('woff'),
-    url('../fonts/myriadprobold.ttf') format('truetype'),
-    url('../fonts/myriadprobold.svg#myriadprobold') format('svg');
+    src: url('../font/myriadprobold.eot');
+    src: url('../font/myriadprobold.eot?#iefix') format('embedded-opentype'),
+    url('../font/myriadprobold.woff') format('woff'),
+    url('../font/myriadprobold.ttf') format('truetype'),
+    url('../font/myriadprobold.svg#myriadprobold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MyriadPro-It';
-    src: url('../fonts/myriadproit.eot');
-    src: url('../fonts/myriadproit.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/myriadproit.woff') format('woff'),
-    url('../fonts/myriadproit.ttf') format('truetype'),
-    url('../fonts/myriadproit.svg#myriadproit') format('svg');
+    src: url('../font/myriadproit.eot');
+    src: url('../font/myriadproit.eot?#iefix') format('embedded-opentype'),
+    url('../font/myriadproit.woff') format('woff'),
+    url('../font/myriadproit.ttf') format('truetype'),
+    url('../font/myriadproit.svg#myriadproit') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MyriadPro-Light';
-    src: url('../fonts/myriadprolight.eot');
-    src: url('../fonts/myriadprolight.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/myriadprolight.woff') format('woff'),
-    url('../fonts/myriadprolight.ttf') format('truetype'),
-    url('../fonts/myriadprolight.svg#myriadprolight') format('svg');
+    src: url('../font/myriadprolight.eot');
+    src: url('../font/myriadprolight.eot?#iefix') format('embedded-opentype'),
+    url('../font/myriadprolight.woff') format('woff'),
+    url('../font/myriadprolight.ttf') format('truetype'),
+    url('../font/myriadprolight.svg#myriadprolight') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'MyriadPro-Regular';
-    src: url('../fonts/myriadproregular.eot');
-    src: url('../fonts/myriadproregular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/myriadproregular.woff') format('woff'),
-    url('../fonts/myriadproregular.ttf') format('truetype'),
-    url('../fonts/myriadproregular.svg#myriadproregular') format('svg');
+    src: url('../font/myriadproregular.eot');
+    src: url('../font/myriadproregular.eot?#iefix') format('embedded-opentype'),
+    url('../font/myriadproregular.woff') format('woff'),
+    url('../font/myriadproregular.ttf') format('truetype'),
+    url('../font/myriadproregular.svg#myriadproregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
