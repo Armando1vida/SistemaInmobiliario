@@ -19,19 +19,19 @@ class Menu {
         $items = array(
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard', 'url' => Yii::app()->homeUrl),
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Llamadas', 'url' => array('/llamadas/llamadaReporte')),
-                    array('label' => 'Sms', 'url' => array('/sms/reports/reporteSms')),
-                    array('label' => 'Mail', 'url' => array('/mail/mailReporte')),
+                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
+                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
+                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
                 )),
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Llamadas', 'url' => array('/llamadas/llamadaReporte')),
-                    array('label' => 'Sms', 'url' => array('/sms/reports/reporteSms')),
-                    array('label' => 'Mail', 'url' => array('/mail/mailReporte')),
+                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
+                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
+                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
                 )),
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Llamadas', 'url' => array('/llamadas/llamadaReporte')),
-                    array('label' => 'Sms', 'url' => array('/sms/reports/reporteSms')),
-                    array('label' => 'Mail', 'url' => array('/mail/mailReporte')),
+                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
+                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
+                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
                 )),
         );
 
