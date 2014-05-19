@@ -42,47 +42,8 @@ class Menu {
     public static function getAdminMenu($controller) {
         self::$_controller = $controller;
         $items = array(
-            array('label' => '<i class="icon-mail-reply"></i>  Regresar a la App', 'url' => Yii::app()->homeUrl),
-            array('label' => '<i class="icon-user"></i>  Usuarios', 'url' => Yii::app()->user->ui->userManagementAdminUrl, 'access' => 'Cruge.ui.*', 'active_rules' => array('module' => 'cruge')),
-            array('label' => '<i class="icon-upload-alt"></i>  Importar Archivo CSV', 'url' => array('/importcsv/'), 'access' => 'importar_archivo_csv', 'active_rules' => array('module' => 'importcsv')),
-            array('label' => '<i class="icon-archive"></i> Grupos', 'url' => array('/crm/grupo/admin'), 'access' => 'action_grupo_admin', 'active_rules' => array('module' => 'crm', 'controller' => 'grupo')),
-            array('label' => '<i class="icon-book"></i>  Catálogos', 'url' => '#', 'items' => array(
-                    array('label' => 'Industrias', 'url' => array('/crm/industria/admin'), 'access' => 'action_industria_admin', 'active_rules' => array('module' => 'crm', 'controller' => 'industria')),
-                    array('label' => 'Etapas de Oportunidad', 'url' => array('/oportunidades/oportunidadEtapa/admin'), 'access' => 'action_oportunidadEtapa_admin', 'active_rules' => array('module' => 'oportunidades', 'controller' => 'oportunidadEtapa')),
-                    array('label' => 'Etapas de Cobranza', 'url' => array('/cobranzas/cobranzaEtapa/admin'), 'access' => 'action_cobranzaEtapa_admin', 'active_rules' => array('module' => 'cobranzas', 'controller' => 'cobranzaEtapa')),
-                    array('label' => 'Etapas de Tarea', 'url' => array('/tareas/tareaEtapa/admin'), 'access' => 'action_tareaEtapa_admin', 'active_rules' => array('module' => 'tareas', 'controller' => 'tareaEtapa')),
-                )),
-            array('label' => '<i class="icon-comments"></i>  Sms', 'url' => '#', 'items' => array(
-                    array('label' => 'Motivos', 'url' => array('/sms/smsMotivo/admin'), 'access' => 'action_smsMotivo_admin', 'active_rules' => array('module' => 'sms', 'controller' => 'smsMotivo')),
-                    array('label' => 'Plantillas', 'url' => array('/sms/smsPlantilla/admin'), 'access' => 'action_smsPlantilla_admin', 'active_rules' => array('module' => 'sms', 'controller' => 'smsPlantilla')),
-                )),
-            array('label' => '<i class="icon-envelope"></i>  Mail', 'url' => '#', 'items' => array(
-                    array('label' => 'Asunto', 'url' => array('/mail/mailAsunto/admin'), 'access' => 'action_mailAsunto_admin', 'active_rules' => array('module' => 'mail', 'controller' => 'mailAsunto')),
-                    array('label' => 'Plantillas', 'url' => array('/mail/mailPlantilla/admin'), 'access' => 'action_mailPlantilla_admin', 'active_rules' => array('module' => 'mail', 'controller' => 'mailPlantilla')),
-                )),
-            array('label' => '<i class="icon-fire-extinguisher"></i>  Incidencias', 'url' => '#', 'items' => array(
-                    array('label' => 'Categoria', 'url' => array('/incidencias/incidenciaCategoria/admin'), 'access' => 'action_incidenciaCategoria_admin', 'active_rules' => array('module' => 'incidencias', 'controller' => 'incidenciaCategoria')),
-                    array('label' => 'Motivo', 'url' => array('/incidencias/incidenciaMotivo/admin'), 'access' => 'action_incidenciaMotivo_admin', 'active_rules' => array('module' => 'incidencias', 'controller' => 'incidenciaMotivo')),
-                    array('label' => 'Sub Motivo', 'url' => array('/incidencias/incidenciaSubmotivo/admin'), 'access' => 'action_incidenciaSubmotivo_admin', 'active_rules' => array('module' => 'incidencias', 'controller' => 'incidenciaSubmotivo')),
-                    array('label' => 'Via ingreso', 'url' => array('/incidencias/incidenciaViaIngreso/admin'), 'access' => 'action_incidenciaViaIngreso_admin', 'active_rules' => array('module' => 'incidencias', 'controller' => 'incidenciaViaIngreso')),
-                    array('label' => 'Estado', 'url' => array('/incidencias/incidenciaEstado/admin'), 'access' => 'action_incidenciaEstado_admin', 'active_rules' => array('module' => 'incidencias', 'controller' => 'incidenciaEstado')),
-                    array('label' => 'Prioridad', 'url' => array('/incidencias/incidenciaPrioridad/admin'), 'access' => 'action_incidenciaPrioridad_admin', 'active_rules' => array('module' => 'incidencias', 'controller' => 'incidenciaPrioridad')),
-                )),
-            array('label' => '<i class="icon-calendar"></i>  Eventos', 'url' => '#', 'items' => array(
-                    array('label' => 'Prioridad', 'url' => array('/eventos/eventoPrioridad/admin'), 'access' => 'action_eventoPrioridad_admin', 'active_rules' => array('module' => 'eventos', 'controller' => 'eventoPrioridad')),
-                )),
-            array('label' => '<i class="icon-phone"></i>  Llamadas', 'url' => '#', 'items' => array(
-                    array('label' => 'Motivos', 'url' => array('/llamadas/llamadaMotivo/admin'), 'access' => 'action_llamadaMotivo_admin', 'active_rules' => array('module' => 'llamadas', 'controller' => 'llamadaMotivo')),
-                    array('label' => 'Submotivos', 'url' => array('/llamadas/llamadaSubmotivo/admin'), 'access' => 'action_llamadaSubmotivo_admin', 'active_rules' => array('module' => 'llamadas', 'controller' => 'llamadaSubmotivo')),
-                    array('label' => 'Subestados', 'url' => array('/llamadas/llamadaSubestado/admin'), 'access' => 'action_llamadaSubestado_admin', 'active_rules' => array('module' => 'llamadas', 'controller' => 'llamadaSubestado')),
-                )),
-            array('label' => '<i class="icon-folder-open"></i>  Historiales', 'url' => '#', 'items' => array(
-                    array('label' => 'Llamadas Entrantes', 'url' => array('/llamadas/llamada/historialEntrantes'), 'access' => 'action_llamada_historialEntrantes', 'active_rules' => array('module' => 'llamadas', 'controller' => 'llamada', 'action' => 'historialEntrantes')),
-                    array('label' => 'Llamadas Salientes', 'url' => array('/llamadas/llamada/historialSalientes'), 'access' => 'action_llamada_historialSalientes', 'active_rules' => array('module' => 'llamadas', 'controller' => 'llamada', 'action' => 'historialSalientes')),
-                    array('label' => 'Sms', 'url' => array('/sms/sms/historial'), 'access' => 'action_sms_historial', 'active_rules' => array('module' => 'sms', 'controller' => 'sms')),
-                    array('label' => 'Emails', 'url' => array('/mail/mail/historial'), 'access' => 'action_mail_historial', 'active_rules' => array('module' => 'mail', 'controller' => 'mail')),
-                )),
-            array('label' => '<i class="icon-time"></i>  Actividades', 'url' => array('/actividades/actividad/admin'), 'access' => 'action_actividad_admin', 'active_rules' => array('module' => 'actividades')),
+            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Regresar a la App', 'url' => Yii::app()->homeUrl),
+            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Usuarios', 'url' => Yii::app()->user->ui->userManagementAdminUrl, 'access' => 'Cruge.ui.*', 'active_rules' => array('module' => 'cruge')),
         );
 
         return self::generateMenu($items);

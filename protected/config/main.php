@@ -14,6 +14,7 @@ return array(
         'log',
         'bootstrap',
     ),
+    'defaultController' => 'site',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -24,14 +25,18 @@ return array(
     ),
     'modules' => array(
         // uncomment the following to enable the Gii tool
-        /*
-          'gii'=>array(
-          'class'=>'system.gii.GiiModule',
-          'password'=>'Enter Your Password Here',
-          // If removed, Gii defaults to localhost only. Edit carefully to taste.
-          'ipFilters'=>array('127.0.0.1','::1'),
-          ),
-         */
+        'gii' => array(
+            'class' => 'system.gii.GiiModule',
+            'password' => 'admin',
+            // If removed, Gii defaults to localhost only. Edit carefully to taste.
+            'ipFilters' => array('127.0.0.1', '::1'),
+            'generatorPaths' => array(
+                'application.gii', // a path alias
+                'bootstrap.gii',
+                'application.gii.widget',
+                'ext.AweCrud.generators',
+            ),
+        ),
         'cruge' => array(
             'tableprefix' => 'cruge_',
             // para que utilice a protected.modules.cruge.models.auth.CrugeAuthDefault.php
@@ -86,6 +91,13 @@ return array(
     ),
     // application components
     'components' => array(
+        'messages' => array(
+            // 'class' => 'MessageSource',
+            //'basePath'=>Yiibase::getPathOfAlias('application.messages'),
+            'extensionPaths' => array(
+                'AweCrud' => 'ext.AweCrud.messages', // AweCrud messages directory.
+            ),
+        ),
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
             'responsiveCss' => true,
@@ -110,15 +122,13 @@ return array(
 //            'connectionString' => 'sqlite:' . dirname(__FILE__) . '/../data/testdrive.db',
 //        ),
         // uncomment the following to use a MySQL database
-        
-          'db'=>array(
-          'connectionString' => 'mysql:host=localhost;dbname=sistemainmobiliario',
-          'emulatePrepare' => true,
-          'username' => 'root',
-          'password' => '',
-          'charset' => 'utf8',
-          ),
-         
+        'db' => array(
+            'connectionString' => 'mysql:host=localhost;dbname=sistemainmobiliario',
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+        ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
@@ -149,7 +159,7 @@ return array(
         'crugemailer' => array(
             'class' => 'application.modules.cruge.components.CrugeMailer',
             'mailfrom' => 'armand1live@gmail.com',
-            'subjectprefix' => 'TruuloCRM - ',
+            'subjectprefix' => 'SistemaInmobiliario - ',
             'debug' => true,
         ),
     ),
