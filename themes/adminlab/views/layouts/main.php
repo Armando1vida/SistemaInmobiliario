@@ -17,7 +17,7 @@
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style_default.css" rel="stylesheet" id="style_color">
         <!--<link href="<?php // echo Yii::app()->theme->baseUrl; ?>/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet">-->
         <!--<link rel="stylesheet" type="text/css" href="<?php // echo Yii::app()->theme->baseUrl; ?>/assets/uniform/css/uniform.default.css">-->
-        <!--<link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet">-->
+        <!--<link href="<?php // echo Yii::app()->theme->baseUrl; ?>/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet">-->
         <!--<link href="<?php // echo Yii::app()->theme->baseUrl; ?>/assets/jqvmap/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css">-->
 
         <script>
