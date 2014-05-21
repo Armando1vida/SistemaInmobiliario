@@ -21,21 +21,37 @@ if (Yii::app()->user->isSuperAdmin) {
     echo Yii::app()->user->ui->superAdminNote();
 }
 ?>
-    <div class="top-controlls">
-        <?php foreach(Yii::app()->user->ui->tradeAdminItems as $menu) :?>
-        <?php $this->widget(
-            'bootstrap.widgets.TbButtonGroup',
-            array(
-                'buttons' => array($menu),
-            )
-        ); ?>
-        <?php endforeach; ?>
+<div class="row-fluid">	
+    <div class="span12">
+        <!--        <h3 class="page-title">
+                    Visual Charts
+                    <small>Basic, tracking, real time charts and graphs</small>
+                    </h3>-->
+        <p>
+            <!--<div class="breadcrumb">-->
+            <?php foreach (Yii::app()->user->ui->tradeAdminItems as $menu) : ?>
+                <?php
+                $this->widget(
+                        'bootstrap.widgets.TbButtonGroup', array(
+                    'buttons' => array($menu),
+                        )
+                );
+                ?>
+            <?php endforeach; ?>
+            <!--</div>-->
+        </p>
     </div>
+</div>  
 
-    <div id="content">
-        <?php echo $content; ?>
-    </div><!-- content -->
-    <?php if (Yii::app()->user->checkAccess('admin')) { ?>	
+<div id="page">
+    <div class="row-fluid">
+
+        <div class="span12" >
+            <?php echo $content; ?>
+        </div>
+    </div>
+</div><!-- content -->
+<?php if (Yii::app()->user->checkAccess('admin')) { ?>	
 <?php } ?>
 
 <?php $this->endContent(); ?>

@@ -4,8 +4,7 @@
 
 $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 ?>
-
-<div class="widget blue">
+<div class="widget">
     <div class="widget-title">
         <h4><i class="icon-user"></i> <?php echo ucwords(CrugeTranslator::t('admin', 'Manage Users')); ?></h4>
         <span class="tools">
@@ -53,6 +52,7 @@ $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
                 ),
             ),
         );
+        
         $this->widget('bootstrap.widgets.TbGridView', array(
             'id' => 'llamada-grid',
             'type' => 'striped condensed',

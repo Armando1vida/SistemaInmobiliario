@@ -5,7 +5,7 @@
 $this->pageTitle = Yii::t('app', 'Administrador de Usuarios');
 ?>
 
-<div class="widget blue">
+<div class="widget">
     <div class="widget-title">
         <h4><i class="icon-user"></i> <?php echo ucwords(CrugeTranslator::t($boolIsUserManagement ? "editando usuario" : "editando tu perfil"));?></h4>
         <span class="tools">

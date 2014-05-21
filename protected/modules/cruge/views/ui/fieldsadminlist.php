@@ -2,7 +2,7 @@
 $this->pageTitle = Yii::t('app', 'Campos Personalizados');
 ?>
 
-<div class="widget blue">
+<div class="widget">
     <div class="widget-title">
         <h4><i class="icon-list"></i> <?php echo ucwords(CrugeTranslator::t("campos personalizados"));?></h4>
         <span class="tools">

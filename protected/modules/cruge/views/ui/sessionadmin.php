@@ -2,7 +2,7 @@
 $this->pageTitle = Yii::t('app', 'Sistema');
 ?>
 
-<div class="widget blue">
+<div class="widget ">
     <div class="widget-title">
         <h4><i class="icon-key"></i> <?php echo ucwords(CrugeTranslator::t("sesiones de usuario"));?></h4>
         <span class="tools">

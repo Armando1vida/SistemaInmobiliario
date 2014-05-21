@@ -14,7 +14,7 @@ return array(
         'log',
         'bootstrap',
     ),
-    'defaultController' => 'site',
+    'defaultController' => 'clientes/default/index',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -37,6 +37,7 @@ return array(
                 'ext.AweCrud.generators',
             ),
         ),
+        'clientes',
         'cruge' => array(
             'tableprefix' => 'cruge_',
             // para que utilice a protected.modules.cruge.models.auth.CrugeAuthDefault.php
@@ -131,7 +132,7 @@ return array(
         ),
         'errorHandler' => array(
             // use 'site/error' action to display errors
-            'errorAction' => 'site/error',
+            'errorAction' => 'clientes/default/index',
         ),
         'log' => array(
             'class' => 'CLogRouter',

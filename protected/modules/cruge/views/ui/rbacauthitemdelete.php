@@ -1,4 +1,4 @@
-<div class="widget red">
+<div class="widget">
     <div class="widget-title">
         <h4><i class="icon-trash"></i> <?php echo ucwords(CrugeTranslator::t("eliminar"));?> <?php echo $model->name; ?></h4>
         <span class="tools">

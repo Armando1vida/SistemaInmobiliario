@@ -11,7 +11,7 @@
 	$selectedUserGetter = 'userdescription';
 ?>
 
-<div class="widget blue">
+<div class="widget">
     <div class="widget-title">
         <h4><i class="icon-key"></i> <?php echo ucfirst(CrugeTranslator::t("Roles Disponibles"));?></h4>
         <span class="tools">
