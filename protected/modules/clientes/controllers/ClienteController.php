@@ -6,6 +6,7 @@ class ClienteController extends AweController {
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
     public $layout = '//layouts/column2';
+    public $admin=false;
 
     public $defaultAction = 'admin';
 
@@ -35,6 +36,7 @@ class ClienteController extends AweController {
 	{
 		$model = new Cliente;
 
+        $this->performAjaxValidation($model, 'cliente-form');
 
         if(isset($_POST['Cliente']))
 		{
@@ -58,6 +60,7 @@ class ClienteController extends AweController {
 	{
 		$model = $this->loadModel($id);
 
+        $this->performAjaxValidation($model, 'cliente-form');
 
 		if(isset($_POST['Cliente']))
 		{

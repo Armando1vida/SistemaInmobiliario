@@ -6,9 +6,9 @@
     $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
         'type' => 'horizontal',
         'id' => 'barrio-form',
-        'enableAjaxValidation' => false,
-        'clientOptions' => array('validateOnSubmit' => true, 'validateOnChange' => false,),
-        'enableClientValidation' => true,
+        'enableAjaxValidation' => true,
+        'clientOptions' => array('validateOnSubmit' => false, 'validateOnChange' => true,),
+        'enableClientValidation' => false,
     ));?>
 
     <?php echo $form->errorSummary($model) ?>

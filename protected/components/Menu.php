@@ -18,11 +18,13 @@ class Menu {
 //      </li>
         $items = array(
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard', 'url' => Yii::app()->homeUrl),
-            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
-                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
-                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
-                )),
+//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
+//                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
+//                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
+//                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
+//                )),
+                        array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Clientes', 'url' =>array('/clientes/cliente')),
+
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
                     array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
                     array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
