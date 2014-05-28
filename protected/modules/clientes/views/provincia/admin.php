@@ -17,12 +17,12 @@ $this->menu = array(
     </div>
     <div style="display: block;" class="widget-body">
         <?php
-        $this->widget('bootstrap.widgets.TbGridView', array(
+        $this->widget('ext.bootstrap.widgets.TbGridView', array(
             'id' => 'provincia-grid',
-            'type' => ' table striped bordered hover advance',
+            'type' => 'striped bordered hover advance',
             "template" => "{items}{summary}{pager}",
             'dataProvider' => $model->search(),
-            'filter' => $model,
+//            'filter' => $model,
             'columns' => array(
                 'nombre',
                 array(

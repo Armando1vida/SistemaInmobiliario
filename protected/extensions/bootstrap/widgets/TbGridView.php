@@ -24,6 +24,7 @@ class TbGridView extends CGridView
 	const TYPE_BORDERED = 'bordered';
 	const TYPE_CONDENSED = 'condensed';
 	const TYPE_HOVER = 'hover';
+	const TYPE_ADVANCE = 'advance';
 
 	/**
 	 * @var string|array the table type.
@@ -74,7 +75,7 @@ class TbGridView extends CGridView
 			}
 
 			if (!empty($this->type)) {
-				$validTypes = array(self::TYPE_STRIPED, self::TYPE_BORDERED, self::TYPE_CONDENSED, self::TYPE_HOVER);
+				$validTypes = array(self::TYPE_STRIPED, self::TYPE_BORDERED, self::TYPE_CONDENSED, self::TYPE_HOVER,  self::TYPE_ADVANCE);
 
 				foreach ($this->type as $type) {
 					if (in_array($type, $validTypes)) {

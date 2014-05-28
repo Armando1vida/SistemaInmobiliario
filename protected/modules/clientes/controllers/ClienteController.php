@@ -6,7 +6,7 @@ class ClienteController extends AweController {
 * using two-column layout. See 'protected/views/layouts/column2.php'.
 */
 public $layout = '//layouts/column2';
-public $admin=true;
+public $admin=false;
 
     public $defaultAction = 'admin';
 

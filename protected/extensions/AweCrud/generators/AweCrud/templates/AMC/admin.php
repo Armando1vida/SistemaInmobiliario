@@ -33,7 +33,7 @@ array('label' => Yii::t('app', 'Create'), 'icon' => 'plus', 'url' => array('crea
         'type' => ' table striped bordered hover advance',
         "template" => "{items}{summary}{pager}",
         'dataProvider' => $model->search(),
-        'filter' => $model,
+       //'filter' => $model,
         'columns' => array(
         <?php
         $count = 0;
