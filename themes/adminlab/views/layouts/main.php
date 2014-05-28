@@ -129,7 +129,7 @@
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <div id="footer">
-            <?php // echo date();?>  2014 &copy; Admin Lab Dashboard.
+            <?php // echo date();?>  2014 &copy; UTN
             <div class="span pull-right">
                 <span class="go-top"><i class="icon-arrow-up"></i></span>
             </div>
