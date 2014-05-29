@@ -3,7 +3,6 @@
  * The following variables are available in this template:
  * - $this: the BootCrudCode object
  * CHANGE LOG:
- * @author Ivan Naranjo <inaranjo@tradesystem.com.ec>
  * @version 0.1
  * @date 2013/06/13
  *  - Agregado 'clientOptions', para que diferencie la validación en el submit y onChange
