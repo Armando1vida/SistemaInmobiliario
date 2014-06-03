@@ -7,8 +7,8 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
     'type' => 'horizontal',
     'id' => 'cliente-form',
     'enableAjaxValidation' => true,
-    'clientOptions' => array('validateOnSubmit' => false, 'validateOnChange' => true,),
-    'enableClientValidation' => false,
+    'clientOptions' => array('validateOnSubmit' => false, 'validateOnChange' => false,),
+    'enableClientValidation' => true,
         ));
 ?>
 <div class="span12">
@@ -27,51 +27,53 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
                 <?php echo Yii::t('AweCrud.app', 'are required') ?> 
             </p>
 
-<!--            <div class="span12 ">-->
-                <?php echo $form->textFieldRow($model, 'tipo', array('maxlength' => 0)) ?>
+            <!--            <div class="span12 ">-->
+            <?php echo $form->dropDownListRow($model, 'tipo', array(null => '-- Seleccione --') + $model->tipos, array('class' => 'span5 fix')) ?>
 
-                <?php echo $form->textFieldRow($model, 'nombre', array('maxlength' => 64)) ?>
-<!--            </div>
+            <?php // echo $form->textFieldRow($model, 'tipo', array('maxlength' => 0)) ?>
 
-            <div class="span12 ">-->
-                <?php echo $form->textFieldRow($model, 'apellido', array('maxlength' => 64)) ?>
+            <?php echo $form->textFieldRow($model, 'nombre', array('maxlength' => 64)) ?>
+            <!--            </div>
+            
+                        <div class="span12 ">-->
+            <?php echo $form->textFieldRow($model, 'apellido', array('maxlength' => 64)) ?>
 
-                <?php echo $form->textFieldRow($model, 'razon_social', array('maxlength' => 64)) ?>
-<!--            </div>
+            <?php echo $form->textFieldRow($model, 'razon_social', array('maxlength' => 64)) ?>
+            <!--            </div>
+            
+                        <div class="span12 ">-->
+            <?php echo $form->textFieldRow($model, 'nombre_comercial', array('maxlength' => 64)) ?>
 
-            <div class="span12 ">-->
-                <?php echo $form->textFieldRow($model, 'nombre_comercial', array('maxlength' => 64)) ?>
+            <?php echo $form->textFieldRow($model, 'celuda', array('maxlength' => 20)) ?>
+            <!--            </div>
+            
+                        <div class="span12 ">-->
+            <?php echo $form->textFieldRow($model, 'telefono', array('maxlength' => 24)) ?>
 
-                <?php echo $form->textFieldRow($model, 'celuda', array('maxlength' => 20)) ?>
-<!--            </div>
+            <?php echo $form->textFieldRow($model, 'celular', array('maxlength' => 24)) ?>
+            <!--            </div>
+            
+                        <div class="span12 ">-->
+            <?php echo $form->textFieldRow($model, 'email_1', array('maxlength' => 255)) ?>
 
-            <div class="span12 ">-->
-                <?php echo $form->textFieldRow($model, 'telefono', array('maxlength' => 24)) ?>
-
-                <?php echo $form->textFieldRow($model, 'celular', array('maxlength' => 24)) ?>
-<!--            </div>
-
-            <div class="span12 ">-->
-                <?php echo $form->textFieldRow($model, 'email_1', array('maxlength' => 255)) ?>
-
-                <?php echo $form->textFieldRow($model, 'email_2', array('maxlength' => 255)) ?>
+            <?php echo $form->textFieldRow($model, 'email_2', array('maxlength' => 255)) ?>
             <!--</div>-->
 
 
 
             <!--<div class="span12 ">-->
-                <?php // echo $form->dropDownListRow($model, 'direccion_principal_id', count(Direccion::model()->findAll()) ? array(0 => ' -- Seleccione -- ') + CHtml::listData(Direccion::model()->findAll(), 'id', Direccion::representingColumn()) : array(0 => ' -- Ninguno -- ')) ?>
+            <?php // echo $form->dropDownListRow($model, 'direccion_principal_id', count(Direccion::model()->findAll()) ? array(0 => ' -- Seleccione -- ') + CHtml::listData(Direccion::model()->findAll(), 'id', Direccion::representingColumn()) : array(0 => ' -- Ninguno -- ')) ?>
 
-                <?php // echo $form->dropDownListRow($model, 'direccion_secundaria_id', count(Direccion::model()->findAll()) ? array(0 => ' -- Seleccione -- ') + CHtml::listData(Direccion::model()->findAll(), 'id', Direccion::representingColumn()) : array(0 => ' -- Ninguno -- ')) ?>
+            <?php // echo $form->dropDownListRow($model, 'direccion_secundaria_id', count(Direccion::model()->findAll()) ? array(0 => ' -- Seleccione -- ') + CHtml::listData(Direccion::model()->findAll(), 'id', Direccion::representingColumn()) : array(0 => ' -- Ninguno -- ')) ?>
             <!--</div>-->
 
             <!--<div class="span12 ">-->
-                <?php echo $form->dropDownListRow($model, 'ciudad_id', count(Ciudad::model()->findAll()) ? array(0 => ' -- Seleccione -- ') + CHtml::listData(Ciudad::model()->findAll(), 'id', Ciudad::representingColumn()) : array(0 => ' -- Ninguno -- ','class'=>'span5 fix')) ?>
-<!--            </div>       
-            <div class="span12 ">-->
-                <?php echo $form->textAreaRow($model, 'descripcion', array('rows' => 3, 'cols' => 50)) ?>
+            <?php echo $form->dropDownListRow($model, 'ciudad_id', (count(Ciudad::model()->findAll()) > 0) ? array(0 => ' -- Seleccione -- ') + CHtml::listData(Ciudad::model()->findAll(), 'id', 'nombre') : array(0 => ' -- Ninguno -- '), array('class' => 'span5 fix')) ?>
+            <!--            </div>       
+                        <div class="span12 ">-->
+            <?php echo $form->textAreaRow($model, 'descripcion', array('rows' => 3, 'cols' => 50)) ?>
 
-                <?php // echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',)) ?>
+            <?php // echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',)) ?>
             <!--</div>-->
             <div class="row-fluid">
 
@@ -96,4 +98,4 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
         </div>
     </div>
 </div>
-            <?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>

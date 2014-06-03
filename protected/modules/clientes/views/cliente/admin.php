@@ -22,7 +22,7 @@ array('label' => Yii::t('app', 'Create'), 'icon' => 'plus', 'url' => array('crea
         'id' => 'cliente-grid',
         'type' => ' table striped bordered hover advance',
         "template" => "{items}{summary}{pager}",
-        'dataProvider' => $model->search(),
+        'dataProvider' => $model->activos()->search(),
 //        'filter' => $model,
         'columns' => array(
                     'tipo',
