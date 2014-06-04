@@ -42,7 +42,7 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
             <!--            </div>
             
                         <div class="span12 ">-->
-            <?php echo $form->textFieldRow($model, 'nombre_comercial', array('maxlength' => 64)) ?>
+            <?php // echo $form->textFieldRow($model, 'nombre_comercial', array('maxlength' => 64)) ?>
 
             <?php echo $form->textFieldRow($model, 'celuda', array('maxlength' => 20)) ?>
             <!--            </div>

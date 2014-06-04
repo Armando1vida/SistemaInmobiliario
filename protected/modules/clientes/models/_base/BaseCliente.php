@@ -14,7 +14,6 @@
  * @property string $nombre
  * @property string $apellido
  * @property string $razon_social
- * @property string $nombre_comercial
  * @property string $celuda
  * @property string $telefono
  * @property string $celular
@@ -28,9 +27,9 @@
  * @property integer $direccion_secundaria_id
  * @property integer $ciudad_id
  *
+ * @property Ciudad $ciudad
  * @property Direccion $direccionPrincipal
  * @property Direccion $direccionSecundaria
- * @property Ciudad $ciudad
  */
 abstract class BaseCliente extends AweActiveRecord {
 
@@ -50,23 +49,23 @@ abstract class BaseCliente extends AweActiveRecord {
         return array(
             array('tipo, nombre, apellido', 'required'),
             array('direccion_principal_id, direccion_secundaria_id, ciudad_id', 'numerical', 'integerOnly'=>true),
-            array('nombre, apellido, razon_social, nombre_comercial', 'length', 'max'=>64),
+            array('nombre, apellido, razon_social', 'length', 'max'=>64),
             array('celuda', 'length', 'max'=>20),
             array('telefono, celular', 'length', 'max'=>24),
             array('email_1, email_2', 'length', 'max'=>255),
             array('estado', 'length', 'max'=>8),
             array('descripcion, fecha_actualizacion', 'safe'),
             array('estado', 'in', 'range' => array('ACTIVO','INACTIVO')), // enum,
-            array('razon_social, nombre_comercial, celuda, telefono, celular, email_1, email_2, descripcion, estado, fecha_actualizacion, direccion_principal_id, direccion_secundaria_id, ciudad_id', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, tipo, nombre, apellido, razon_social, nombre_comercial, celuda, telefono, celular, email_1, email_2, descripcion, estado, fecha_creacion, fecha_actualizacion, direccion_principal_id, direccion_secundaria_id, ciudad_id', 'safe', 'on'=>'search'),
+            array('razon_social, celuda, telefono, celular, email_1, email_2, descripcion, estado, fecha_actualizacion, direccion_principal_id, direccion_secundaria_id, ciudad_id', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, tipo, nombre, apellido, razon_social, celuda, telefono, celular, email_1, email_2, descripcion, estado, fecha_creacion, fecha_actualizacion, direccion_principal_id, direccion_secundaria_id, ciudad_id', 'safe', 'on'=>'search'),
         );
     }
 
     public function relations() {
         return array(
+            'ciudad' => array(self::BELONGS_TO, 'Ciudad', 'ciudad_id'),
             'direccionPrincipal' => array(self::BELONGS_TO, 'Direccion', 'direccion_principal_id'),
             'direccionSecundaria' => array(self::BELONGS_TO, 'Direccion', 'direccion_secundaria_id'),
-            'ciudad' => array(self::BELONGS_TO, 'Ciudad', 'ciudad_id'),
         );
     }
 
@@ -80,7 +79,6 @@ abstract class BaseCliente extends AweActiveRecord {
                 'nombre' => Yii::t('app', 'Nombre'),
                 'apellido' => Yii::t('app', 'Apellido'),
                 'razon_social' => Yii::t('app', 'Razon Social'),
-                'nombre_comercial' => Yii::t('app', 'Nombre Comercial'),
                 'celuda' => Yii::t('app', 'Celuda'),
                 'telefono' => Yii::t('app', 'Telefono'),
                 'celular' => Yii::t('app', 'Celular'),
@@ -93,9 +91,9 @@ abstract class BaseCliente extends AweActiveRecord {
                 'direccion_principal_id' => Yii::t('app', 'Direccion Principal'),
                 'direccion_secundaria_id' => Yii::t('app', 'Direccion Secundaria'),
                 'ciudad_id' => Yii::t('app', 'Ciudad'),
+                'ciudad' => null,
                 'direccionPrincipal' => null,
                 'direccionSecundaria' => null,
-                'ciudad' => null,
         );
     }
 
@@ -107,7 +105,6 @@ abstract class BaseCliente extends AweActiveRecord {
         $criteria->compare('nombre', $this->nombre, true);
         $criteria->compare('apellido', $this->apellido, true);
         $criteria->compare('razon_social', $this->razon_social, true);
-        $criteria->compare('nombre_comercial', $this->nombre_comercial, true);
         $criteria->compare('celuda', $this->celuda, true);
         $criteria->compare('telefono', $this->telefono, true);
         $criteria->compare('celular', $this->celular, true);
