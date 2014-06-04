@@ -328,7 +328,6 @@ CREATE TABLE `cliente` (
   `nombre` varchar(64) NOT NULL,
   `apellido` varchar(64) NOT NULL,
   `razon_social` varchar(64) DEFAULT NULL,
-  `nombre_comercial` varchar(64) DEFAULT NULL,
   `celuda` varchar(20) DEFAULT NULL,
   `telefono` varchar(24) DEFAULT NULL,
   `celular` varchar(24) DEFAULT NULL,
