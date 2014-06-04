@@ -34,7 +34,6 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
 
             <?php echo $form->textFieldRow($model, 'razon_social', array('maxlength' => 64)) ?>
 
-
             <?php echo $form->textFieldRow($model, 'celuda', array('maxlength' => 20)) ?>
 
             <?php echo $form->textFieldRow($model, 'telefono', array('maxlength' => 24)) ?>
