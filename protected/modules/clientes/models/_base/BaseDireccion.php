@@ -10,15 +10,17 @@
  * followed by relations of table "direccion" available as properties of the model.
  *
  * @property integer $id
+ * @property integer $cliente_id
  * @property string $calle_1
  * @property string $calle_2
  * @property string $numero
  * @property string $referencia
  * @property integer $barrio_id
+ * @property integer $ciudad_id
  *
- * @property Cliente[] $clientes
- * @property Cliente[] $clientes1
  * @property Barrio $barrio
+ * @property Ciudad $ciudad
+ * @property Cliente $cliente
  */
 abstract class BaseDireccion extends AweActiveRecord {
 
@@ -36,20 +38,21 @@ abstract class BaseDireccion extends AweActiveRecord {
 
     public function rules() {
         return array(
-            array('barrio_id', 'numerical', 'integerOnly'=>true),
+            array('cliente_id', 'required'),
+            array('cliente_id, barrio_id, ciudad_id', 'numerical', 'integerOnly'=>true),
             array('calle_1, calle_2', 'length', 'max'=>128),
             array('numero', 'length', 'max'=>8),
             array('referencia', 'safe'),
-            array('calle_1, calle_2, numero, referencia, barrio_id', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, calle_1, calle_2, numero, referencia, barrio_id', 'safe', 'on'=>'search'),
+            array('calle_1, calle_2, numero, referencia, barrio_id, ciudad_id', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, cliente_id, calle_1, calle_2, numero, referencia, barrio_id, ciudad_id', 'safe', 'on'=>'search'),
         );
     }
 
     public function relations() {
         return array(
-            'clientes' => array(self::HAS_MANY, 'Cliente', 'direccion_principal_id'),
-            'clientes1' => array(self::HAS_MANY, 'Cliente', 'direccion_secundaria_id'),
             'barrio' => array(self::BELONGS_TO, 'Barrio', 'barrio_id'),
+            'ciudad' => array(self::BELONGS_TO, 'Ciudad', 'ciudad_id'),
+            'cliente' => array(self::BELONGS_TO, 'Cliente', 'cliente_id'),
         );
     }
 
@@ -59,14 +62,16 @@ abstract class BaseDireccion extends AweActiveRecord {
     public function attributeLabels() {
         return array(
                 'id' => Yii::t('app', 'ID'),
+                'cliente_id' => Yii::t('app', 'Cliente'),
                 'calle_1' => Yii::t('app', 'Calle 1'),
                 'calle_2' => Yii::t('app', 'Calle 2'),
                 'numero' => Yii::t('app', 'Numero'),
                 'referencia' => Yii::t('app', 'Referencia'),
                 'barrio_id' => Yii::t('app', 'Barrio'),
-                'clientes' => null,
-                'clientes1' => null,
+                'ciudad_id' => Yii::t('app', 'Ciudad'),
                 'barrio' => null,
+                'ciudad' => null,
+                'cliente' => null,
         );
     }
 
@@ -74,11 +79,13 @@ abstract class BaseDireccion extends AweActiveRecord {
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
+        $criteria->compare('cliente_id', $this->cliente_id);
         $criteria->compare('calle_1', $this->calle_1, true);
         $criteria->compare('calle_2', $this->calle_2, true);
         $criteria->compare('numero', $this->numero, true);
         $criteria->compare('referencia', $this->referencia, true);
         $criteria->compare('barrio_id', $this->barrio_id);
+        $criteria->compare('ciudad_id', $this->ciudad_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

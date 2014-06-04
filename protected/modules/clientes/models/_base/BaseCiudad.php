@@ -15,7 +15,7 @@
  *
  * @property Barrio[] $barrios
  * @property Provincia $provincia
- * @property Cliente[] $clientes
+ * @property Direccion[] $direccions
  */
 abstract class BaseCiudad extends AweActiveRecord {
 
@@ -33,9 +33,10 @@ abstract class BaseCiudad extends AweActiveRecord {
 
     public function rules() {
         return array(
-            array('nombre, provincia_id', 'required'),
+            array('nombre', 'required'),
             array('provincia_id', 'numerical', 'integerOnly'=>true),
             array('nombre', 'length', 'max'=>32),
+            array('provincia_id', 'default', 'setOnEmpty' => true, 'value' => null),
             array('id, nombre, provincia_id', 'safe', 'on'=>'search'),
         );
     }
@@ -44,7 +45,7 @@ abstract class BaseCiudad extends AweActiveRecord {
         return array(
             'barrios' => array(self::HAS_MANY, 'Barrio', 'ciudad_id'),
             'provincia' => array(self::BELONGS_TO, 'Provincia', 'provincia_id'),
-            'clientes' => array(self::HAS_MANY, 'Cliente', 'ciudad_id'),
+            'direccions' => array(self::HAS_MANY, 'Direccion', 'ciudad_id'),
         );
     }
 
@@ -58,7 +59,7 @@ abstract class BaseCiudad extends AweActiveRecord {
                 'provincia_id' => Yii::t('app', 'Provincia'),
                 'barrios' => null,
                 'provincia' => null,
-                'clientes' => null,
+                'direccions' => null,
         );
     }
 

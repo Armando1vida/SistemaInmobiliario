@@ -32,9 +32,10 @@ abstract class BaseBarrio extends AweActiveRecord {
 
     public function rules() {
         return array(
-            array('nombre, ciudad_id', 'required'),
+            array('nombre', 'required'),
             array('ciudad_id', 'numerical', 'integerOnly'=>true),
             array('nombre', 'length', 'max'=>32),
+            array('ciudad_id', 'default', 'setOnEmpty' => true, 'value' => null),
             array('id, nombre, ciudad_id', 'safe', 'on'=>'search'),
         );
     }
