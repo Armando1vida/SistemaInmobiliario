@@ -10,6 +10,14 @@ class Cliente extends BaseCliente {
     //TIPO
     const TIPO_VENDEDOR = 'VENDEDOR';
     const TIPO_COMPRADOR = 'COMPRADOR';
+    //Direccion
+    public $calle_1;
+    public $calle_2;
+    public $numero;
+    public $referencia;
+    public $barrio_id;
+    public $ciudad_id;
+    public $provincia_id;
 
     /**
      * @return Cliente
@@ -33,6 +41,13 @@ class Cliente extends BaseCliente {
             'celuda' => Yii::t('app', 'Céluda'),
             'telefono' => Yii::t('app', 'Teléfono'),
             'descripcion' => Yii::t('app', 'Descripción'),
+            'calle_1' => Yii::t('app', 'Calle 1'),
+            'calle_2' => Yii::t('app', 'Calle 2'),
+            'numero' => Yii::t('app', 'Número'),
+            'referencia' => Yii::t('app', 'Referencia'),
+            'barrio_id' => Yii::t('app', 'Barrio'),
+            'ciudad_id' => Yii::t('app', 'Ciudad'),
+            'provincia_id' => Yii::t('app', 'Provincia'),
                 )
         );
     }

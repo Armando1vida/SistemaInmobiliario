@@ -21,6 +21,7 @@ return array(
         'application.components.*',
         'ext.AweCrud.components.*', // AweCrud components
         'application.modules.cruge.components.*',
+        'application.modules.clientes.models.*',
         'application.modules.cruge.extensions.crugemailer.*',
     ),
     'modules' => array(
