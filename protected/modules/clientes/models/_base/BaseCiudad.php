@@ -34,7 +34,7 @@ abstract class BaseCiudad extends AweActiveRecord {
     public function rules() {
         return array(
             array('nombre', 'required'),
-            array('provincia_id', 'numerical', 'integerOnly'=>true),
+//            array('provincia_id', 'numerical', 'integerOnly'=>true),
             array('nombre', 'length', 'max'=>32),
             array('provincia_id', 'default', 'setOnEmpty' => true, 'value' => null),
             array('id, nombre, provincia_id', 'safe', 'on'=>'search'),

@@ -27,7 +27,7 @@ $this->menu = array(
                 'nombre',
                 array(
                     'class' => 'CButtonColumn',
-                    'template' => '{delete} {update}',
+                    'template' => '{update} {delete}',
                     'buttons' => array(
                         'update' => array(
                             'label' => '<button class="btn btn-primary"><i class="icon-pencil"></i></button>',
