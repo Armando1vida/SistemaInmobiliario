@@ -48,6 +48,21 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
             <?php echo $form->textFieldRow($model, 'calle_2', array('maxlength' => 255)) ?>
 
             <?php echo $form->textFieldRow($model, 'numero', array('maxlength' => 255)) ?>
+            <div class="control-group">
+                <label class="control-label" for="direccion">Dirección</label>
+                <div class="controls">
+                    <div class="controls-row">
+                        
+                    </div>
+                    <div class="controls-row">
+                        
+                    </div>
+                    <div class="controls-row">
+                        
+                    </div>
+
+                </div>
+            </div>
 
             <div class="control-group">
                 <label class="control-label" for="Cliente_provincia_id">Provincia</label>
