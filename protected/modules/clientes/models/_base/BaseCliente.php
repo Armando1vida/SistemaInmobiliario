@@ -14,7 +14,7 @@
  * @property string $nombre
  * @property string $apellido
  * @property string $razon_social
- * @property string $celuda
+ * @property string $cedula
  * @property string $telefono
  * @property string $celular
  * @property string $email
@@ -27,7 +27,7 @@
  */
 abstract class BaseCliente extends AweActiveRecord {
 
-    public static function model($className = __CLASS__) {
+    public static function model($className=__CLASS__) {
         return parent::model($className);
     }
 
@@ -43,15 +43,15 @@ abstract class BaseCliente extends AweActiveRecord {
         return array(
             array('tipo, nombre, apellido', 'required'),
             array('email', 'email'),
-            array('nombre, apellido, razon_social', 'length', 'max' => 64),
-            array('celuda', 'length', 'max' => 20),
-            array('telefono, celular', 'length', 'max' => 24),
-            array('email', 'length', 'max' => 255),
-            array('estado', 'length', 'max' => 8),
+            array('nombre, apellido, razon_social', 'length', 'max'=>64),
+            array('cedula', 'length', 'max'=>20),
+            array('telefono, celular', 'length', 'max'=>24),
+            array('email', 'length', 'max'=>255),
+            array('estado', 'length', 'max'=>8),
             array('descripcion, fecha_actualizacion', 'safe'),
-            array('estado', 'in', 'range' => array('ACTIVO', 'INACTIVO')), // enum,
-            array('razon_social, celuda, telefono, celular, email, descripcion, estado, fecha_actualizacion', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, tipo, nombre, apellido, razon_social, celuda, telefono, celular, email, descripcion, estado, fecha_creacion, fecha_actualizacion', 'safe', 'on' => 'search'),
+            array('estado', 'in', 'range' => array('ACTIVO','INACTIVO')), // enum,
+            array('razon_social, cedula, telefono, celular, email, descripcion, estado, fecha_actualizacion', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, tipo, nombre, apellido, razon_social, cedula, telefono, celular, email, descripcion, estado, fecha_creacion, fecha_actualizacion', 'safe', 'on'=>'search'),
         );
     }
 
@@ -66,20 +66,20 @@ abstract class BaseCliente extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-            'id' => Yii::t('app', 'ID'),
-            'tipo' => Yii::t('app', 'Tipo'),
-            'nombre' => Yii::t('app', 'Nombre'),
-            'apellido' => Yii::t('app', 'Apellido'),
-            'razon_social' => Yii::t('app', 'Razon Social'),
-            'celuda' => Yii::t('app', 'Celuda'),
-            'telefono' => Yii::t('app', 'Telefono'),
-            'celular' => Yii::t('app', 'Celular'),
-            'email' => Yii::t('app', 'Email'),
-            'descripcion' => Yii::t('app', 'Descripcion'),
-            'estado' => Yii::t('app', 'Estado'),
-            'fecha_creacion' => Yii::t('app', 'Fecha Creacion'),
-            'fecha_actualizacion' => Yii::t('app', 'Fecha Actualizacion'),
-            'direccions' => null,
+                'id' => Yii::t('app', 'ID'),
+                'tipo' => Yii::t('app', 'Tipo'),
+                'nombre' => Yii::t('app', 'Nombre'),
+                'apellido' => Yii::t('app', 'Apellido'),
+                'razon_social' => Yii::t('app', 'Razon Social'),
+                'cedula' => Yii::t('app', 'Cedula'),
+                'telefono' => Yii::t('app', 'Telefono'),
+                'celular' => Yii::t('app', 'Celular'),
+                'email' => Yii::t('app', 'Email'),
+                'descripcion' => Yii::t('app', 'Descripcion'),
+                'estado' => Yii::t('app', 'Estado'),
+                'fecha_creacion' => Yii::t('app', 'Fecha Creacion'),
+                'fecha_actualizacion' => Yii::t('app', 'Fecha Actualizacion'),
+                'direccions' => null,
         );
     }
 
@@ -91,7 +91,7 @@ abstract class BaseCliente extends AweActiveRecord {
         $criteria->compare('nombre', $this->nombre, true);
         $criteria->compare('apellido', $this->apellido, true);
         $criteria->compare('razon_social', $this->razon_social, true);
-        $criteria->compare('celuda', $this->celuda, true);
+        $criteria->compare('cedula', $this->cedula, true);
         $criteria->compare('telefono', $this->telefono, true);
         $criteria->compare('celular', $this->celular, true);
         $criteria->compare('email', $this->email, true);
@@ -113,7 +113,6 @@ abstract class BaseCliente extends AweActiveRecord {
                 'updateAttribute' => 'fecha_actualizacion',
                 'timestampExpression' => new CDbExpression('NOW()'),
             )
-                ), parent::behaviors());
+        ), parent::behaviors());
     }
-
 }
