@@ -14,7 +14,7 @@ class Cliente extends BaseCliente {
     public $calle_1;
     public $calle_2;
     public $numero;
-    public $referencia;
+    public $referencia_dir;
     public $barrio_id;
     public $ciudad_id;
     public $provincia_id;

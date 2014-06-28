@@ -32,15 +32,23 @@ class ClienteController extends AweController {
      */
     public function actionCreate() {
         $model = new Cliente;
+        $modelDireccion = new Direccion;
         $this->performAjaxValidation($model, 'cliente-form');
         if (isset($_POST['Cliente'])) {
             $model->attributes = $_POST['Cliente'];
+            $modelDireccion->attributes = $_POST['Direccion'];
             if ($model->save()) {
-                $this->redirect(array('admin'));
+                $modelDireccion->cliente_id = $model->id;
+                $modelDireccion->ciudad_id = $modelDireccion->ciudad_id == 0 ? null : $modelDireccion->ciudad_id;
+                $modelDireccion->barrio_id = $modelDireccion->barrio_id == 0 ? null : $modelDireccion->barrio_id;
+                if ($modelDireccion->save()) {
+                    $this->redirect(array('admin'));
+                }
             }
         }
         $this->render('create', array(
             'model' => $model,
+            'modelDireccion' => $modelDireccion,
         ));
     }
 
@@ -50,17 +58,29 @@ class ClienteController extends AweController {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+
         $model = $this->loadModel($id);
+        $modelDireccion = isset($model->direccions[0]) ? $model->direccions[0] : new Direccion;
+
         $this->performAjaxValidation($model, 'cliente-form');
+
         if (isset($_POST['Cliente'])) {
             $model->attributes = $_POST['Cliente'];
+            $modelDireccion->attributes = $_POST['Direccion'];
+            $modelDireccion->ciudad_id = $modelDireccion->ciudad_id == 0 ? null : $modelDireccion->ciudad_id;
+            $modelDireccion->barrio_id = $modelDireccion->barrio_id == 0 ? null : $modelDireccion->barrio_id;
             if ($model->save()) {
-                $this->redirect(array('admin'));
+
+                $modelDireccion->cliente_id = $model->id;
+                if ($modelDireccion->save()) {
+                    $this->redirect(array('admin'));
+                }
             }
         }
 
         $this->render('update', array(
             'model' => $model,
+            'modelDireccion' => $modelDireccion,
         ));
     }
 
