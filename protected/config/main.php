@@ -39,6 +39,7 @@ return array(
             ),
         ),
         'clientes',
+        'inmuebles',
         'cruge' => array(
             'tableprefix' => 'cruge_',
             // para que utilice a protected.modules.cruge.models.auth.CrugeAuthDefault.php

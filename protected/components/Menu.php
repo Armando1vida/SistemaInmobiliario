@@ -23,18 +23,19 @@ class Menu {
 //                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
 //                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
 //                )),
-                        array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Clientes', 'url' =>array('/clientes/cliente')),
-
-            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
-                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
-                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
-                )),
-            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
-                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
-                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
-                )),
+            array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Clientes', 'url' => array('/clientes/cliente')),
+            array('label' => '<span class="icon-box"> <i class="icon-home"></i></span> Inmuenle', 'url' => array('/inmuebles/inmueble')),
+            array('label' => '<span class="icon-box"> <i class="icon-camera-retro"></i></span> Galeria', 'url' => array('/clientes/cliente')),
+//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Inmueble<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
+//                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
+//                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
+//                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
+//                )),
+//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
+//                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
+//                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
+//                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
+//                )),
         );
 
 //        return self::generateMenu($items);
@@ -47,9 +48,9 @@ class Menu {
             array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Regresar a la App', 'url' => Yii::app()->homeUrl),
             array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Usuarios', 'url' => Yii::app()->user->ui->userManagementAdminUrl, 'access' => 'Cruge.ui.*', 'active_rules' => array('module' => 'cruge')),
             array('label' => '<span class="icon-box"> <i class="icon-book"></i></span> Catagolo<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-                    array('label' => 'Provincia', 'url' => array('/clientes/provincia'),'access' => 'action_provincia_admin', 'active_rules' => array('module' => 'clientes', 'controller' => 'provincia')),
-                    array('label' => 'Ciudad', 'url' => array('/clientes/ciudad'),'access' => 'action_ciudad_admin', 'active_rules' => array('module' => 'clientes', 'controller' => 'ciudad')),
-                    array('label' => 'Barrio', 'url' => array('/clientes/barrio'),'access' => 'action_barrio_admin', 'active_rules' => array('module' => 'clientes', 'controller' => 'barrio')),
+                    array('label' => 'Provincia', 'url' => array('/clientes/provincia'), 'access' => 'action_provincia_admin', 'active_rules' => array('module' => 'clientes', 'controller' => 'provincia')),
+                    array('label' => 'Ciudad', 'url' => array('/clientes/ciudad'), 'access' => 'action_ciudad_admin', 'active_rules' => array('module' => 'clientes', 'controller' => 'ciudad')),
+                    array('label' => 'Barrio', 'url' => array('/clientes/barrio'), 'access' => 'action_barrio_admin', 'active_rules' => array('module' => 'clientes', 'controller' => 'barrio')),
                 )),
         );
 
