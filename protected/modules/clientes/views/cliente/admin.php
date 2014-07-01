@@ -19,7 +19,7 @@ $this->menu = array(
         <?php
         $this->widget('bootstrap.widgets.TbGridView', array(
             'id' => 'cliente-grid',
-            'type' => ' table striped bordered hover advance',
+            'type' => 'striped bordered hover advance',
             "template" => "{items}{summary}{pager}",
             'dataProvider' => $model->activos()->search(),
 //        'filter' => $model,

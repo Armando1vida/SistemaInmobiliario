@@ -35,7 +35,7 @@ class TbGridView extends CGridView
 	/**
 	 * @var string the CSS class name for the pager container. Defaults to 'pagination'.
 	 */
-	public $pagerCssClass = 'pagination';
+	public $pagerCssClass = 'pagination pagination-centered';
 
 	/**
 	 * @var array the configuration for the pager.

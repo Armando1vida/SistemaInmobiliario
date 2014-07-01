@@ -16,7 +16,7 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
         <div class="widget-title">
             <h4><i class="icon-home"></i> <?php echo $model->isNewRecord ? Yii::t('AweCrud.app', 'Create') : Yii::t('AweCrud.app', 'Update') ?> <?php echo Inmueble::label(); ?></h4>
             <span class="tools">
-                <a href="javascript:;" class="icon-chevron-down"></a>
+                <!--<a href="javascript:;" class="icon-chevron-down"></a>-->
                 <!--a href="javascript:;" class="icon-remove"></a-->
             </span>
         </div>
@@ -38,13 +38,13 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
             <div class="span12 ">
                 <?php echo $form->textFieldRow($model, 'direccion_id') ?>
 
-                <?php echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',),array('placeholder'=>'')) ?>
+                <?php echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',), array('placeholder' => '')) ?>
             </div>
 
             <div class="span12 ">
                 <?php echo $form->textFieldRow($model, 'precio', array('maxlength' => 10)) ?>
 
-                <?php echo $form->dropDownListRow($model, 'estado_inmueble', array('DISPONIBLE' => 'DISPONIBLE', 'VENDIDO' => 'VENDIDO', 'ARRENDADO' => 'ARRENDADO', 'RESERVADO' => 'RESERVADO',),array('placeholder'=>'')) ?>
+                <?php echo $form->dropDownListRow($model, 'estado_inmueble', array('DISPONIBLE' => 'DISPONIBLE', 'VENDIDO' => 'VENDIDO', 'ARRENDADO' => 'ARRENDADO', 'RESERVADO' => 'RESERVADO',), array('placeholder' => '')) ?>
             </div>
 
             <div class="span12 ">
