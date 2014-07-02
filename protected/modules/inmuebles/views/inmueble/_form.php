@@ -74,10 +74,10 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
                 </div>
             </div>
 
-            <?php $this->endWidget(); ?>
         </div>
     </div>
 </div>
+<?php $this->endWidget(); ?>
 <div class="span6">
     <div class="widget">
         <div class="widget-title">
@@ -88,40 +88,22 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
             </span>-->
         </div>
         <div class="widget-body">
-            <?php
-            $this->widget('ext.bootstrap.widgets.TbFileUpload', array(
-                'url' => $this->createUrl("/inmuebles/inmuebleImagen/upload"),
-                'model' => $modelImagen,
-                'attribute' => 'picture', // see the attribute?
-                'multiple' => true,
-                'options' => array(
-                    'maxFileSize' => 2000000,
-                    'acceptFileTypes' => 'js:/(\.|\/)(gif|jpe?g|png)$/i',
-            )));
-            ?>
-            <?php
-//            $formA = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
-//                'id' => 'archivo-form',
-//                'type' => 'vertical',
-//                'enableAjaxValidation' => true,
-//                'clientOptions' => array('validateOnSubmit' => false, 'validateOnChange' => false,),
-//                'enableClientValidation' => false,
-//            ));
-            ?>
-            <?php
-//            Util::checkAccess(array("action_nota_guardarNota")) ?
-//                            $formA->widget('xupload.XUpload', array(
-//                                'model' => $archivos,
-//                                'url' => CController::createUrl('/inmueble/inmuebleImagen/uploadTmp'),
-//                                'htmlOptions' => array('id' => 'archivo-form'),
-//                                'attribute' => 'file',
-//                                'multiple' => true,
-//                                'autoUpload' => true
-//                            )) : '';
-            ?>
-            <?php // $this->endWidget();  ?>
 
+            <div class="row-fluid">
 
+                <?php
+                $this->widget('ext.bootstrap.widgets.TbFileUpload', array(
+                    'url' => $this->createUrl("/inmuebles/inmuebleImagen/upload"),
+                    'model' => $modelImagen,
+                    'attribute' => 'picture', // see the attribute?
+                    'multiple' => true,
+                    'options' => array(
+                        'maxFileSize' => 2000000,
+                        'acceptFileTypes' => 'js:/(\.|\/)(gif|jpe?g|png)$/i',
+                )));
+                ?>
+
+            </div>
         </div>
     </div>
 </div>
