@@ -92,16 +92,26 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
             <div class="row-fluid">
 
                 <?php
-                $this->widget('ext.bootstrap.widgets.TbFileUpload', array(
-                    'url' => $this->createUrl("/inmuebles/inmuebleImagen/upload"),
-                    'model' => $modelImagen,
-                    'attribute' => 'picture', // see the attribute?
+//                $this->widget('ext.bootstrap.widgets.TbFileUpload', array(
+//                    'url' => $this->createUrl("/inmuebles/inmuebleImagen/upload"),
+//                    'model' => $modelImagen,
+//                    'attribute' => 'picture', // see the attribute?
+//                    'multiple' => true,
+//                    'options' => array(
+//                        'maxFileSize' => 2000000,
+//                        'acceptFileTypes' => 'js:/(\.|\/)(gif|jpe?g|png)$/i',
+//                )));
+
+                $this->widget('xupload.XUpload', array(
+                    'model' => $archivos,
+                    'url' => CController::createUrl('/inmuebles/inmuebleImagen/uploadTmp'),
+                    'htmlOptions' => array('id' => 'archivo-form'),
+                    'attribute' => 'file',
                     'multiple' => true,
-                    'options' => array(
-                        'maxFileSize' => 2000000,
-                        'acceptFileTypes' => 'js:/(\.|\/)(gif|jpe?g|png)$/i',
-                )));
+                    'autoUpload' => true
+                ))
                 ?>
+
 
             </div>
         </div>

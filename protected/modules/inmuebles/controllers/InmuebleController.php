@@ -33,6 +33,8 @@ class InmuebleController extends AweController {
     public function actionCreate() {
         $model = new Inmueble;
         $modelImagen = new InmuebleImagen;
+        Yii::import("xupload.models.XUploadForm");
+        $archivos = new XUploadForm;
 
         $this->performAjaxValidation($model, 'inmueble-form');
 
@@ -45,6 +47,7 @@ class InmuebleController extends AweController {
         $this->render('create', array(
             'model' => $model,
             'modelImagen' => $modelImagen,
+            'archivos' => $archivos,
         ));
     }
 

@@ -24,6 +24,9 @@ return array(
         'application.modules.clientes.models.*',
         'application.modules.cruge.extensions.crugemailer.*',
     ),
+    'aliases' => array(
+        'xupload' => 'ext.xupload'
+    ),
     'modules' => array(
         // uncomment the following to enable the Gii tool
         'gii' => array(
