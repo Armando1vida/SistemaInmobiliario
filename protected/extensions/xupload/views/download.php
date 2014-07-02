@@ -10,7 +10,7 @@
     <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
     {% } else { %}
     <td class="preview">{% if (file.thumbnail_url) { %}
-    <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.url%}"></a>
+    <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img width="50" height="50" src="{%=file.url%}"></a>
     {% } %}</td>
     <td class="name">
     <a href="{%=file.url%}" class='archivosNota' url="{%=file.url%}"  title="{%=file.name%}" filename="{%=file.filename%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
