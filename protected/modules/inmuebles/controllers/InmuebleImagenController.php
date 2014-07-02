@@ -119,7 +119,7 @@ class InmuebleImagenController extends AweController {
         $carpeta = 'tmp';
         $id = '';
         chdir(getcwd()); //me ubico en el directorio del proyecto
-//        Yii::import("xupload.models.XUploadForm");
+        Yii::import("xupload.models.XUploadForm");
         /* creacion de la carpeta $id dentro de la $carpeta correspondiente para
          * el guardado de los multiples archivos */
         if (!file_exists('uploads/')) {
@@ -158,7 +158,7 @@ class InmuebleImagenController extends AweController {
                 echo json_encode(true);
             }
         } else {
-//            $model = new XUploadForm;
+            $model = new XUploadForm;
             $model->file = CUploadedFile::getInstance($model, 'file');
 
             // We check that the file was successfully uploaded
@@ -211,6 +211,7 @@ class InmuebleImagenController extends AweController {
                                 "id" => $id,
                                 "carpeta" => $carpeta
                             )),
+                            'thumbnail_url' => $path . $filename,
                             "delete_type" => "POST"
                     )));
                     /*
@@ -226,53 +227,54 @@ class InmuebleImagenController extends AweController {
         }
     }
 
-    public function actionUpload() {
-        header('Vary: Accept');
-        if (isset($_SERVER['HTTP_ACCEPT']) &&
-                (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)) {
-            header('Content-type: application/json');
-        } else {
-            header('Content-type: text/plain');
-        }
-        $data = array();
-
-        $model = new InmuebleImagen('upload');
-        $model->picture = CUploadedFile::getInstance($model, 'picture');
-//        var_dump($model->picture->name);
-//        die();
-        if ($model->picture !== null && $model->validate(array('picture'))) {
-            $model->picture->saveAs(
-                    Yii::getPathOfAlias('frontend.www.files') . '/' . $model->picture->name);
-            $model->nombre = $model->picture->name;
-            // save picture name
-            if ($model->save()) {
-                // return data to the fileuploader
-                $data[] = array(
-                    'name' => $model->picture->name,
-                    'type' => $model->picture->type,
-                    'size' => $model->picture->size,
-                    // we need to return the place where our image has been saved
-                    'url' => $model->getImageUrl(), // Should we add a helper method?
-                    // we need to provide a thumbnail url to display on the list
-                    // after upload. Again, the helper method now getting thumbnail.
-                    'thumbnail_url' => $model->getImageUrl(MyModel::IMG_THUMBNAIL),
-                    // we need to include the action that is going to delete the picture
-                    // if we want to after loading 
-                    'delete_url' => $this->createUrl('my/delete', array('id' => $model->id, 'method' => 'uploader')),
-                    'delete_type' => 'POST');
-            } else {
-                $data[] = array('error' => 'Unable to save model after saving picture');
-            }
-        } else {
-            if ($model->hasErrors('picture')) {
-                $data[] = array('error', $model->getErrors('picture'));
-            } else {
-                throw new CHttpException(500, "Could not upload file " . CHtml::errorSummary($model));
-            }
-        }
-        // JQuery File Upload expects JSON data
-        echo json_encode($data);
-    }
+//    public function actionUpload() {
+//        header('Vary: Accept');
+//        if (isset($_SERVER['HTTP_ACCEPT']) &&
+//                (strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)) {
+//            header('Content-type: application/json');
+//        } else {
+//            header('Content-type: text/plain');
+//        }
+//        $data = array();
+//
+//        $model = new InmuebleImagen('upload');
+//        $modelpicture = CUploadedFile::getInstance($model, 'picture');
+//        
+////        var_dump($modelpicture);
+////        die();
+//        if ($modelpicture !== null && $model->validate(array('picture'))) {
+//            $modelpicture->saveAs(
+//                    Yii::getPathOfAlias('frontend.www.files') . '/' . $modelpicture->name);
+//            $model->nombre = $modelpicture->name;
+//            // save picture name
+////            if ($model->save()) {
+//                // return data to the fileuploader
+//                $data[] = array(
+//                    'name' => $modelpicture->name,
+//                    'type' => $modelpicture->type,
+//                    'size' => $modelpicture->size,
+//                    // we need to return the place where our image has been saved
+//                    'url' => $modelpicture->getImageUrl(), // Should we add a helper method?
+//                    // we need to provide a thumbnail url to display on the list
+//                    // after upload. Again, the helper method now getting thumbnail.
+//                    'thumbnail_url' => $modelpicture->getImageUrl(MyModel::IMG_THUMBNAIL),
+//                    // we need to include the action that is going to delete the picture
+//                    // if we want to after loading 
+//                    'delete_url' => $this->createUrl('my/delete', array('id' => $model->id, 'method' => 'uploader')),
+//                    'delete_type' => 'POST');
+////            } else {
+////                $data[] = array('error' => 'Unable to save model after saving picture');
+////            }
+//        } else {
+//            if ($model->hasErrors('picture')) {
+//                $data[] = array('error', $model->getErrors('picture'));
+//            } else {
+//                throw new CHttpException(500, "Could not upload file " . CHtml::errorSummary($model));
+//            }
+//        }
+//        // JQuery File Upload expects JSON data
+//        echo json_encode($data);
+//    }
 
     /**
      * Returns the data model based on the primary key given in the GET variable.
