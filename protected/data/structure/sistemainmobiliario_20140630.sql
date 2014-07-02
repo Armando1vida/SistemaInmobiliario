@@ -328,7 +328,7 @@ CREATE TABLE IF NOT EXISTS `sistema_inmobiliario`.`inmueble` (
   `fecha_actualizacion` DATETIME NULL DEFAULT NULL,
   `fecha_negocio` DATETIME NULL,
   `numero_habitacion` INT(3) NULL,
-  `numero_banios` INT(3) NULL,
+  `numero_banio` INT(3) NULL,
   `numero_garage` INT(2) NULL,
   `descripcion` VARCHAR(500) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))

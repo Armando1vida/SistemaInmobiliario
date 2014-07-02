@@ -20,7 +20,7 @@
  * @property string $fecha_actualizacion
  * @property string $fecha_negocio
  * @property integer $numero_habitacion
- * @property integer $numero_banios
+ * @property integer $numero_banio
  * @property integer $numero_garage
  * @property string $descripcion
  *
@@ -43,15 +43,15 @@ abstract class BaseInmueble extends AweActiveRecord {
     public function rules() {
         return array(
             array('direccion_id, estado, estado_inmueble, fecha_publicacion', 'required'),
-            array('cliente_propietario_id, cliente_negocio_id, direccion_id, numero_habitacion, numero_banios, numero_garage', 'numerical', 'integerOnly'=>true),
+            array('cliente_propietario_id, cliente_negocio_id, direccion_id, numero_habitacion, numero_banio, numero_garage', 'numerical', 'integerOnly'=>true),
             array('estado', 'length', 'max'=>8),
             array('precio, estado_inmueble', 'length', 'max'=>10),
             array('descripcion', 'length', 'max'=>500),
             array('fecha_actualizacion, fecha_negocio', 'safe'),
             array('estado', 'in', 'range' => array('ACTIVO','INACTIVO')), // enum,
             array('estado_inmueble', 'in', 'range' => array('DISPONIBLE','VENDIDO','ARRENDADO','RESERVADO')), // enum,
-            array('cliente_propietario_id, cliente_negocio_id, precio, fecha_actualizacion, fecha_negocio, numero_habitacion, numero_banios, numero_garage, descripcion', 'default', 'setOnEmpty' => true, 'value' => null),
-            array('id, cliente_propietario_id, cliente_negocio_id, direccion_id, estado, precio, estado_inmueble, fecha_publicacion, fecha_actualizacion, fecha_negocio, numero_habitacion, numero_banios, numero_garage, descripcion', 'safe', 'on'=>'search'),
+            array('cliente_propietario_id, cliente_negocio_id, precio, fecha_actualizacion, fecha_negocio, numero_habitacion, numero_banio, numero_garage, descripcion', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, cliente_propietario_id, cliente_negocio_id, direccion_id, estado, precio, estado_inmueble, fecha_publicacion, fecha_actualizacion, fecha_negocio, numero_habitacion, numero_banio, numero_garage, descripcion', 'safe', 'on'=>'search'),
         );
     }
 
@@ -77,7 +77,7 @@ abstract class BaseInmueble extends AweActiveRecord {
                 'fecha_actualizacion' => Yii::t('app', 'Fecha Actualizacion'),
                 'fecha_negocio' => Yii::t('app', 'Fecha Negocio'),
                 'numero_habitacion' => Yii::t('app', 'Numero Habitacion'),
-                'numero_banios' => Yii::t('app', 'Numero Banios'),
+                'numero_banio' => Yii::t('app', 'Numero Banio'),
                 'numero_garage' => Yii::t('app', 'Numero Garage'),
                 'descripcion' => Yii::t('app', 'Descripcion'),
                 'inmuebleImagens' => null,
@@ -98,7 +98,7 @@ abstract class BaseInmueble extends AweActiveRecord {
         $criteria->compare('fecha_actualizacion', $this->fecha_actualizacion, true);
         $criteria->compare('fecha_negocio', $this->fecha_negocio, true);
         $criteria->compare('numero_habitacion', $this->numero_habitacion);
-        $criteria->compare('numero_banios', $this->numero_banios);
+        $criteria->compare('numero_banio', $this->numero_banio);
         $criteria->compare('numero_garage', $this->numero_garage);
         $criteria->compare('descripcion', $this->descripcion, true);
 
