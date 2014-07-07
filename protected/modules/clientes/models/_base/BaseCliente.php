@@ -46,7 +46,7 @@ abstract class BaseCliente extends AweActiveRecord {
             array('nombre, apellido, razon_social', 'length', 'max'=>64),
             array('cedula', 'length', 'max'=>20),
             array('telefono, celular', 'length', 'max'=>24),
-            array('email', 'length', 'max'=>255),
+            array('email', 'length', 'max'=>50),
             array('estado', 'length', 'max'=>8),
             array('descripcion, fecha_actualizacion', 'safe'),
             array('estado', 'in', 'range' => array('ACTIVO','INACTIVO')), // enum,
@@ -57,7 +57,7 @@ abstract class BaseCliente extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'direccions' => array(self::HAS_MANY, 'Direccion', 'cliente_id'),
+            'direccions' => array(self::HAS_MANY, 'Direccion', 'entidad_id'),
         );
     }
 

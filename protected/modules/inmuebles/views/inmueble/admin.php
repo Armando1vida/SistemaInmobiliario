@@ -26,7 +26,7 @@ $this->menu = array(
             'columns' => array(
                 'cliente_propietario_id',
                 'cliente_negocio_id',
-                'direccion_id',
+//                'direccion_id',
                 array(
                     'name' => 'estado',
                     'filter' => array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',),

@@ -10,6 +10,7 @@ class Cliente extends BaseCliente {
     //TIPO
     const TIPO_VENDEDOR = 'VENDEDOR';
     const TIPO_COMPRADOR = 'COMPRADOR';
+
     //Direccion
     public $calle_1;
     public $calle_2;
@@ -24,6 +25,12 @@ class Cliente extends BaseCliente {
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
+    }
+
+    public function relations() {
+        return array(
+            'direccions' => array(self::HAS_MANY, 'Direccion', 'entidad_id', 'condition' => 'entidad_tipo = "cliente"',),
+        );
     }
 
     public static function label($n = 1) {

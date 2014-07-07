@@ -38,7 +38,8 @@ class ClienteController extends AweController {
             $model->attributes = $_POST['Cliente'];
             $modelDireccion->attributes = $_POST['Direccion'];
             if ($model->save()) {
-                $modelDireccion->cliente_id = $model->id;
+                $modelDireccion->entidad_id = $model->id;
+                $modelDireccion->entidad_tipo = 'cliente';
                 $modelDireccion->ciudad_id = $modelDireccion->ciudad_id == 0 ? null : $modelDireccion->ciudad_id;
                 $modelDireccion->barrio_id = $modelDireccion->barrio_id == 0 ? null : $modelDireccion->barrio_id;
                 if ($modelDireccion->save()) {
@@ -71,7 +72,8 @@ class ClienteController extends AweController {
             $modelDireccion->barrio_id = $modelDireccion->barrio_id == 0 ? null : $modelDireccion->barrio_id;
             if ($model->save()) {
 
-                $modelDireccion->cliente_id = $model->id;
+                $modelDireccion->entidad_id = $model->id;
+                $modelDireccion->entidad_tipo = 'cliente';
                 if ($modelDireccion->save()) {
                     $this->redirect(array('admin'));
                 }
