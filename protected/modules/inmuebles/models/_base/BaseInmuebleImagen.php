@@ -32,9 +32,11 @@ abstract class BaseInmuebleImagen extends AweActiveRecord {
 
     public function rules() {
         return array(
-            array('nombre, ruta, inmueble_id', 'required'),
+            array('inmueble_id', 'required'),
             array('inmueble_id', 'numerical', 'integerOnly'=>true),
-            array('nombre, ruta', 'length', 'max'=>45),
+            array('nombre', 'length', 'max'=>100),
+            array('ruta', 'length', 'max'=>200),
+            array('nombre, ruta', 'default', 'setOnEmpty' => true, 'value' => null),
             array('id, nombre, ruta, inmueble_id', 'safe', 'on'=>'search'),
         );
     }

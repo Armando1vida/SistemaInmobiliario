@@ -34,8 +34,8 @@ class InmuebleController extends AweController {
         $model = new Inmueble;
         Yii::import("xupload.models.XUploadForm");
         $archivos = new XUploadForm;
+//        $archivos->algo = 'hola';
         $modelDireccion = new Direccion;
-        $modelImagen = new InmuebleImagen;
         $model->estado = Inmueble::ESTADO_ACTIVO;
         $model->estado_inmueble = Inmueble::ESTADO_DISPONIBLE;
         $model->fecha_publicacion = Util::FechaActual();
@@ -72,7 +72,6 @@ class InmuebleController extends AweController {
                     } else {
                         $this->redirect(array('admin'));
                     }
-//                    $this->redirect(array('admin'));
                 }
             }
         }

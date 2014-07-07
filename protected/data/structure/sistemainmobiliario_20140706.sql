@@ -193,8 +193,8 @@ CREATE TABLE `inmueble` (
 
 CREATE TABLE `inmueble_imagen` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `ruta` varchar(45) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `ruta` varchar(200) NOT NULL,
   `inmueble_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_inmueble_imagen_inmueble1_idx` (`inmueble_id`),
