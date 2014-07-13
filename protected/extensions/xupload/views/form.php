@@ -48,39 +48,36 @@
 <?php // var_dump($this->model->algo)?>
 <table class="table table-striped">
     <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery">
+        <?php if ($this->pictures) : ?>
+            <?php foreach ($this->pictures as $key => $value) { ?>
+                <?php
+                $ruta = explode('/', $value->ruta);
+                $nombreArchivo = $ruta[count($ruta) - 1];
+                $id_imagen = $value->id;
+                $id_inmueble = $value->inmueble_id;
+                ?>
+                <tr class="template-download fade in" style="height: 59px;">
+                    <td class="preview">
+                        <a href="<?php echo $value->ruta; ?>" title="<?php echo $value->nombre; ?>" rel="gallery" download="<?php echo $value->nombre; ?>">
+                            <img width="50" height="50" src="<?php echo $value->ruta; ?>">
+                        </a>
+                    </td>
+                    <td class="name">
+                        <a href="<?php echo $value->ruta; ?>" url="<?php echo $value->ruta; ?>" title="<?php echo $value->nombre; ?>" filename="<?php echo $nombreArchivo; ?>" rel="gallery" download="<?php echo $value->nombre; ?>"><?php echo $value->nombre; ?></a>
+                    </td>
+                    <td colspan="2"></td>
+                    <td class="delete">
+                        <button class="btn-mini btn btn-danger" data-type="POST" data-url="/SistemaInmobiliario/inmuebles/inmuebleImagen/uploadTmp?_method=deleteUpdate&amp;file_name=<?php echo $nombreArchivo; ?>&amp;id=<?php echo $value->id; ?>&amp;id_inmueble=<?php echo $value->inmueble_id; ?>">
+                            <i class="icon-trash icon-white"></i>
+                            <span>Delete</span>
+                        </button>
+                        <input type="hidden" name="delete" value="1">
+                    </td>
+                </tr>
 
-<!--        {% for (var i=0, file; file=o.files[i]; i++) { %}
-        <tr class="template-download fade">
-            {% if (file.error) { %}
-            <td></td>
-            <td class="name"><span>{%=file.name%}</span></td>
-            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-            {% } else { %}
-            <td class="preview">{% if (file.thumbnail_url) { %}
-                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img width="50" height="50" src="{%=file.url%}"></a>
-                {% } %}</td>
-            <td class="name">
-                <a href="{%=file.url%}" class='archivosNota' url="{%=file.url%}"  title="{%=file.name%}" filename="{%=file.filename%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
-                <option type="hidden" value="{%=file.name%}"></option>
-                <input type="hidden" class='archivosNota'>
-            </td>
-            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-            <td colspan="2"></td>
-            {% } %}
-            <td class="delete">
-                <button class="btn-mini btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
-                    <i class="icon-trash icon-white"></i>
-                    <span>{%=locale.fileupload.destroy%}</span>
-                </button>
-                            <?php // if ($this->multiple) :        ?><input type="checkbox" name="delete" value="1">
-                <?php // else: ?><input type="hidden" name="delete" value="1">
-                <?php // endif; ?>
-            </td>
-        </tr>
-        {% } %}-->
+            <?php } ?>
+        <?php endif; ?>
 
     </tbody>
 </table>
-<!--</select>-->
 <?php if ($this->showForm) echo CHtml::endForm(); ?>

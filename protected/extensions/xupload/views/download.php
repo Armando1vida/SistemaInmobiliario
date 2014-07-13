@@ -14,11 +14,10 @@
     {% } %}</td>
     <td class="name">
     <a href="{%=file.url%}" class='archivosNota' url="{%=file.url%}"  title="{%=file.name%}" filename="{%=file.filename%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
-    <!--<option type="hidden" value="{%=file.name%}"></option>-->
-    <!--<input type="hidden" class='archivosNota'>-->
+
     </td>
-    <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-    <td colspan="2"></td>
+    <!--<td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>-->
+//    <td colspan="2"></td>
     {% } %}
     <td class="delete">
     <button class="btn-mini btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">

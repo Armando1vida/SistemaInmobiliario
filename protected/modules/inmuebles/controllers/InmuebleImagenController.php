@@ -149,9 +149,21 @@ class InmuebleImagenController extends AweController {
         if (isset($_GET["_method"])) {
             if ($_GET["_method"] == "delete") {
                 if ($_GET["file"][0] !== '.') {
+
                     $file = $path . $_GET["file"];
                     if (is_file($file)) {
+                        die(var_dump($file));
                         // borrar el archivo del path correspondiente
+                        unlink($file);
+                    }
+                }
+                echo json_encode(true);
+            } else if ($_GET["_method"] == "deleteUpdate") { //para borrar imagenes dento de update de inmueble
+                $file = realpath(Yii::app()->getBasePath() . "/../uploads/inmueble/" . $_GET['id_inmueble']) . "/";
+                $file = $file . $_GET['file_name'];
+                if (is_file($file)) {
+                    // borrar el archivo del path correspondiente
+                    if ($this->loadModel($_GET["id"])->delete()) {
                         unlink($file);
                     }
                 }

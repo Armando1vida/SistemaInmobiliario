@@ -207,6 +207,7 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
                     'url' => CController::createUrl('/inmuebles/inmuebleImagen/uploadTmp'),
                     'htmlOptions' => array('id' => 'archivo-form'),
                     'attribute' => 'file',
+                    'pictures' => !$model->isNewRecord ? $model->inmuebleImagens : array(),
                     'multiple' => true,
                     'autoUpload' => true,
                     'options' => array(

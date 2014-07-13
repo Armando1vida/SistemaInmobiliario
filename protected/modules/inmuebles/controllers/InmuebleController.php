@@ -93,7 +93,7 @@ class InmuebleController extends AweController {
         Yii::import("xupload.models.XUploadForm");
         $archivos = new XUploadForm;
         $modelDireccion = isset($model->direccions[0]) ? $model->direccions[0] : new Direccion;
-
+//        die(var_dump($model->inmuebleImagens));
         $this->performAjaxValidation($model, 'inmueble-form');
 
         if (isset($_POST['Inmueble'])) {
@@ -102,11 +102,32 @@ class InmuebleController extends AweController {
             $modelDireccion->ciudad_id = $modelDireccion->ciudad_id == 0 ? null : $modelDireccion->ciudad_id;
             $modelDireccion->barrio_id = $modelDireccion->barrio_id == 0 ? null : $modelDireccion->barrio_id;
             if ($model->save()) {
-
                 $modelDireccion->entidad_id = $model->id;
                 $modelDireccion->entidad_tipo = 'inmueble';
                 if ($modelDireccion->save()) {
-                    $this->redirect(array('admin'));
+                    $imagenes = $_POST['Imagenes'];
+                    if ($imagenes != '[]') {
+                        $imagenes = CJSON::decode($imagenes);
+                        if (!file_exists('uploads/inmueble/' . $model->id)) {
+                            mkdir('uploads/inmueble/' . $model->id, 0777, true);
+                        }
+                        $path = realpath(Yii::app()->getBasePath() . "/../uploads/inmueble/" . $model->id) . "/";
+                        $pathorigen = realpath(Yii::app()->getBasePath() . "/../uploads/tmp/") . "/";
+                        $publicPath = Yii::app()->getBaseUrl() . "/uploads/inmueble/" . $model->id . '/';
+                        foreach ($imagenes as $value) {
+                            $archivo_model = new InmuebleImagen();
+                            $archivo_model->nombre = $value['nombreArchivo'];
+                            $archivo_model->ruta = $publicPath . $value['filename'];
+                            $archivo_model->inmueble_id = $model->id;
+                            if (rename($pathorigen . $value['filename'], $path . $value['filename'])) {
+                                $archivo_model->save();
+                            }
+                        }
+                        $this->redirect(array('admin'));
+                    } else {
+                        $this->redirect(array('admin'));
+                    }
+//                    $this->redirect(array('admin'));
                 }
             }
         }
