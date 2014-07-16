@@ -36,7 +36,29 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
             <?php // echo $form->textFieldRow($model, 'direccion_id') ?>
 
             <?php // echo $form->dropDownListRow($model, 'estado', array('ACTIVO' => 'ACTIVO', 'INACTIVO' => 'INACTIVO',), array('placeholder' => '')) ?>
-
+            <div class="control-group">
+                <label class="control-label" for="cliente_propietario_id">Propietario <span class='required'>*</span></label>
+                <div class="controls  controls-row">
+                    <div class="span8">
+                        <?php
+                        $listCliente = CHtml::listData(Cliente::model()->activos()->tipo(Cliente::TIPO_VENDEDOR)->findAll(), 'id', 'nombre_completo');
+                        $this->widget(
+                                'ext.bootstrap.widgets.TbSelect2', array(
+                            'asDropDownList' => TRUE,
+                            'name' => 'Inmueble[cliente_propietario_id]',
+                            'data' => $listCliente,
+                            'val' => $model->cliente_propietario_id,
+                            'options' => array(
+                                'placeholder' => 'Propietario',
+                                'width' => '100%',
+                            )
+                                )
+                        );
+                        ?>
+                        <?php echo $form->error($model, 'cliente_propietario_id'); ?>
+                    </div>
+                </div>
+            </div>
 
             <?php echo $form->textFieldRow($model, 'precio', array('maxlength' => 10)) ?>
 

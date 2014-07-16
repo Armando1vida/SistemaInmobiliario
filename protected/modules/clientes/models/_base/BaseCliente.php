@@ -71,7 +71,7 @@ abstract class BaseCliente extends AweActiveRecord {
                 'nombre' => Yii::t('app', 'Nombre'),
                 'apellido' => Yii::t('app', 'Apellido'),
                 'razon_social' => Yii::t('app', 'Razon Social'),
-                'cedula' => Yii::t('app', 'Cedula'),
+                'cedula' => Yii::t('app', 'Cédula'),
                 'telefono' => Yii::t('app', 'Telefono'),
                 'celular' => Yii::t('app', 'Celular'),
                 'email' => Yii::t('app', 'Email'),

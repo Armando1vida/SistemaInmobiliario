@@ -121,8 +121,11 @@ class ClienteController extends AweController {
     public function actionAdmin() {
         $model = new Cliente('search');
         $model->unsetAttributes(); // clear any default values
-        if (isset($_GET['Cliente']))
-            $model->attributes = $_GET['Cliente'];
+//        if (isset($_GET['Cliente']))
+//            $model->attributes = $_GET['Cliente'];
+        if (isset($_GET['search'])) {
+            $model->attributes = $this->assignParams($_GET['search']);
+        }
 
         $this->render('admin', array(
             'model' => $model,
@@ -139,6 +142,25 @@ class ClienteController extends AweController {
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
+    }
+
+    /**
+     * 
+     * @param type $params
+     * @return type
+     */
+    public function assignParams($params) {
+        $result = array();
+        if ($params['filters'][0] == 'all') {
+            foreach (Cliente::model()->searchParams() as $param) {
+                $result[$param] = $params['value'];
+            }
+        } else {
+            foreach ($params['filters'] as $param) {
+                $result[$param] = $params['value'];
+            }
+        }
+        return $result;
     }
 
     /**

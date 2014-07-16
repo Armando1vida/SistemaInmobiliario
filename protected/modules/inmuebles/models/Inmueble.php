@@ -29,6 +29,21 @@ class Inmueble extends BaseInmueble {
         );
     }
 
+    public function rules() {
+        return array(
+            array('estado, estado_inmueble, fecha_publicacion,cliente_propietario_id', 'required'),
+            array('cliente_propietario_id, cliente_negocio_id, numero_habitacion, numero_banio, numero_garage', 'numerical', 'integerOnly' => true),
+            array('estado', 'length', 'max' => 8),
+            array('precio, estado_inmueble', 'length', 'max' => 10),
+            array('descripcion', 'length', 'max' => 500),
+            array('fecha_actualizacion, fecha_negocio', 'safe'),
+            array('estado', 'in', 'range' => array('ACTIVO', 'INACTIVO')), // enum,
+            array('estado_inmueble', 'in', 'range' => array('DISPONIBLE', 'VENDIDO', 'ARRENDADO', 'RESERVADO')), // enum,
+            array('cliente_propietario_id, cliente_negocio_id, precio, fecha_actualizacion, fecha_negocio, numero_habitacion, numero_banio, numero_garage, descripcion', 'default', 'setOnEmpty' => true, 'value' => null),
+            array('id, cliente_propietario_id, cliente_negocio_id, estado, precio, estado_inmueble, fecha_publicacion, fecha_actualizacion, fecha_negocio, numero_habitacion, numero_banio, numero_garage, descripcion', 'safe', 'on' => 'search'),
+        );
+    }
+
     public static function label($n = 1) {
         return Yii::t('app', 'Inmueble|Inmuebles', $n);
     }
