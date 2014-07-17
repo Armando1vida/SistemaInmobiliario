@@ -4,6 +4,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var_dump($model->activos()->findAll());
+die();
 ?>
 <div class="well"> 
     <div class="row-fluid">

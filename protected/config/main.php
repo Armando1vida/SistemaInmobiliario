@@ -14,7 +14,7 @@ return array(
         'log',
         'bootstrap',
     ),
-    'defaultController' => 'clientes/default/index',
+    'defaultController' => 'inmuebles/inmueble/galery',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -109,10 +109,10 @@ return array(
             'responsiveCss' => true,
             'ajaxCssLoad' => false,
         ),
-        'user' => array(
-            // enable cookie-based authentication
-            'allowAutoLogin' => true,
-        ),
+//        'user' => array(
+//            // enable cookie-based authentication
+//            'allowAutoLogin' => true,
+//        ),
         // uncomment the following to enable URLs in path-format
         'urlManager' => array(
             'urlFormat' => 'path',
@@ -136,8 +136,7 @@ return array(
             'charset' => 'utf8',
         ),
         'errorHandler' => array(
-            // use 'site/error' action to display errors
-            'errorAction' => 'clientes/default/index',
+            'errorAction' => '/inmuebles/inmueble/error',
         ),
         'log' => array(
             'class' => 'CLogRouter',
@@ -145,6 +144,11 @@ return array(
                 array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
+                ),
+                array(
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'info',
+                    'categories' => 'system.*',
                 ),
             // uncomment the following to show log messages on web pages
             /*
@@ -167,6 +171,12 @@ return array(
             'mailfrom' => 'armand1live@gmail.com',
             'subjectprefix' => 'SistemaInmobiliario - ',
             'debug' => true,
+        ),
+        'format' => array(
+            'datetimeFormat' => "d M, Y h:m:s a",
+        ),
+        'format' => array(
+            'datetimeFormat' => "d M, Y h:m:s a",
         ),
     ),
     // application-level parameters that can be accessed
