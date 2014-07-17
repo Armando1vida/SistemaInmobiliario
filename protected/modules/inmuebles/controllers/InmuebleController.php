@@ -21,8 +21,11 @@ class InmuebleController extends AweController {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $model = $this->loadModel($id);
+        $modelDireccion = isset($model->direccions[0]) ? $model->direccions[0] : new Direccion;
         $this->render('view', array(
-            'model' => $this->loadModel($id),
+            'model' => $model,
+            'modelDireccion' => $modelDireccion,
         ));
     }
 
@@ -147,7 +150,8 @@ class InmuebleController extends AweController {
     public function actionDelete($id) {
         if (Yii::app()->request->isPostRequest) {
 // we only allow deletion via POST request
-            $this->loadModel($id)->delete();
+//            $this->loadModel($id)->delete();
+            Inmueble::model()->updateByPk($id, array('estado' => Inmueble::ESTADO_INACTIVO));
 
 // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
@@ -172,10 +176,25 @@ class InmuebleController extends AweController {
     public function actionAdmin() {
         $model = new Inmueble('search');
         $model->unsetAttributes(); // clear any default values
-        if (isset($_GET['Inmueble']))
-            $model->attributes = $_GET['Inmueble'];
+        if (isset($_GET['search'])) {
+            $model->attributes = $this->assignParams($_GET['search']);
+        }
 
         $this->render('admin', array(
+            'model' => $model,
+        ));
+    }
+
+    /**
+     * Manages all models.
+     */
+    public function actionGalery() {
+        $model = new Inmueble('search');
+        $model->unsetAttributes(); // clear any default values
+        if (isset($_GET['search'])) {
+            $model->attributes = $this->assignParams($_GET['search']);
+        }
+        $this->render('galery', array(
             'model' => $model,
         ));
     }
@@ -190,6 +209,25 @@ class InmuebleController extends AweController {
         if ($model === null)
             throw new CHttpException(404, 'The requested page does not exist.');
         return $model;
+    }
+
+    /**
+     * 
+     * @param type $params
+     * @return type
+     */
+    public function assignParams($params) {
+        $result = array();
+        if ($params['filters'][0] == 'all') {
+            foreach (Inmueble::model()->searchParams() as $param) {
+                $result[$param] = $params['value'];
+            }
+        } else {
+            foreach ($params['filters'] as $param) {
+                $result[$param] = $params['value'];
+            }
+        }
+        return $result;
     }
 
     /**

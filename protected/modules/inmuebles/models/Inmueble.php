@@ -20,12 +20,36 @@ class Inmueble extends BaseInmueble {
         return parent::model($className);
     }
 
+    public function searchParams() {
+        return array(
+            'id',
+            'cliente_propietario_id',
+            'precio',
+            'estado_inmueble',
+            'numero_habitacion',
+            'numero_banio',
+            'numero_garage',
+        );
+    }
+
     public function relations() {
         return array(
             'direccions' => array(self::HAS_MANY, 'Direccion', 'entidad_id',
                 'condition' => 'entidad_tipo = "inmueble"',
             ),
             'inmuebleImagens' => array(self::HAS_MANY, 'InmuebleImagen', 'inmueble_id'),
+            'cliente_propietario' => array(self::BELONGS_TO, 'Cliente', 'cliente_propietario_id'),
+        );
+    }
+
+    public function scopes() {
+        return array(
+            'activos' => array(
+                'condition' => 't.estado = :estado',
+                'params' => array(
+                    ':estado' => self::ESTADO_ACTIVO,
+                )
+            ),
         );
     }
 
@@ -54,6 +78,29 @@ class Inmueble extends BaseInmueble {
             'numero_habitacion' => Yii::t('app', 'Numero de habitaciones'),
             'numero_garage' => Yii::t('app', 'Numero de garages'),
             'descripcion' => Yii::t('app', 'Descripción'),
+        ));
+    }
+
+    public function search() {
+        $criteria = new CDbCriteria;
+        $criteria->with = array('cliente_propietario');
+        $criteria->compare('t.id', $this->id, true, 'OR');
+        $criteria->compare('CONCAT(IFNULL(CONCAT(cliente_propietario.nombre," "),""),IFNULL(cliente_propietario.apellido,""))', $this->cliente_propietario_id, true, 'OR');
+//        $criteria->compare('cliente_propietario_id', $this->cliente_propietario_id, true, 'OR');
+        $criteria->compare('t.cliente_negocio_id', $this->cliente_negocio_id, true, 'OR');
+        $criteria->compare('t.estado', $this->estado, true, 'OR');
+        $criteria->compare('t.precio', $this->precio, true, 'OR');
+        $criteria->compare('t.estado_inmueble', $this->estado_inmueble, true, 'OR');
+        $criteria->compare('t.fecha_publicacion', $this->fecha_publicacion, true, 'OR');
+        $criteria->compare('t.fecha_actualizacion', $this->fecha_actualizacion, true, 'OR');
+        $criteria->compare('t.fecha_negocio', $this->fecha_negocio, true, 'OR');
+        $criteria->compare('t.numero_habitacion', $this->numero_habitacion, true, 'OR');
+        $criteria->compare('t.numero_banio', $this->numero_banio, true, 'OR');
+        $criteria->compare('t.numero_garage', $this->numero_garage, true, 'OR');
+        $criteria->compare('t.descripcion', $this->descripcion, true, 'OR');
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
         ));
     }
 

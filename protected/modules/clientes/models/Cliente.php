@@ -29,6 +29,10 @@ class Cliente extends BaseCliente {
         return parent::model($className);
     }
 
+    public static function representingColumn() {
+        return 'nombre_completo';
+    }
+
     public function relations() {
         return array(
             'direccions' => array(self::HAS_MANY, 'Direccion', 'entidad_id', 'condition' => 'entidad_tipo = "cliente"',),

@@ -24,8 +24,8 @@ class Menu {
 //                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
 //                )),
             array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Clientes', 'url' => array('/clientes/cliente')),
-            array('label' => '<span class="icon-box"> <i class="icon-home"></i></span> Inmuenle', 'url' => array('/inmuebles/inmueble')),
-            array('label' => '<span class="icon-box"> <i class="icon-camera-retro"></i></span> Galeria', 'url' => array('/clientes/cliente')),
+            array('label' => '<span class="icon-box"> <i class="icon-home"></i></span> Inmueble', 'url' => array('/inmuebles/inmueble')),
+            array('label' => '<span class="icon-box"> <i class="icon-camera"></i></span> Galeria', 'url' => array('/inmuebles/inmueble/galery')),
 //            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Inmueble<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
 //                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
 //                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),

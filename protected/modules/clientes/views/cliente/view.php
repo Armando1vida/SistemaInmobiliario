@@ -39,7 +39,7 @@ $this->pageTitle = $model->nombre_completo;
 //                'fecha_creacion',
 //                'fecha_actualizacion',
                 array(
-                    'name' => 'Dirección',
+                    'name' => 'Direcci&oacute;n',
                     'value' => (isset($model->direccions[0])) ? $model->direccions[0]->direccionConFormato : null,
                     'type' => 'raw',
                 ),

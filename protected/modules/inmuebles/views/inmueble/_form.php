@@ -74,7 +74,6 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
 
             <?php echo $form->textFieldRow($model, 'numero_garage') ?>
 
-            <?php echo $form->textFieldRow($model, 'descripcion', array('maxlength' => 500)) ?>
             <div class="control-group">
                 <div class="control-group">
                     <label class="control-label">Dirección</label>
@@ -180,6 +179,7 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
                     </div>
                 </div>
             </div>  
+            <?php echo $form->textAreaRow($model, 'descripcion', array('maxlength' => 500)) ?>
 
             <input id="archivosData"  type="hidden" name='Imagenes'></input>
 

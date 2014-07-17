@@ -482,10 +482,14 @@ class Util {
             "rgb(119,128,138)", "rgb(243,123,83)", "rgb(13,174,211)", "rgb(148,159,167)");
 
 
-    
-     shuffle($colores);
-  
-        return $colores ;
+
+        shuffle($colores);
+
+        return $colores;
+    }
+
+    public static function number_pad($number, $n) {
+        return str_pad((int) $number, $n, "0", STR_PAD_LEFT);
     }
 
 }
