@@ -9,16 +9,16 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="description">
         <meta content="" name="author">
-        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;        ?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;         ?>/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style_responsive.css" rel="stylesheet">
         <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/style_default.css" rel="stylesheet" id="style_color">
-        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet">-->
-        <!--<link rel="stylesheet" type="text/css" href="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/uniform/css/uniform.default.css">-->
-        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet">-->
-        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css">-->
+        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet">-->
+        <!--<link rel="stylesheet" type="text/css" href="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/uniform/css/uniform.default.css">-->
+        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet">-->
+        <!--<link href="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/jqvmap.css" media="screen" rel="stylesheet" type="text/css">-->
 
         <script>
             var baseUrl = "<?php print Yii::app()->baseUrl . '/'; ?>";
@@ -37,9 +37,10 @@
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <!-- BEGIN LOGO -->
-                    <!--                    <a class="brand" href="index.html">
-                                            <img src="img/logo.png" alt="Admin Lab" />
-                                        </a>-->
+                    <a class="brand" href="<?php echo Yii::app()->homeUrl  ?>">
+                        <!--<img src="<?php // echo Yii::app()->theme->baseUrl;  ?>/img/logoTR.png" alt="Partners Group" />-->
+                        <center>UTN</center>
+                    </a>
                     <!-- END LOGO -->
 
                     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -137,36 +138,36 @@
         <!-- END FOOTER -->
         <!-- BEGIN JAVASCRIPTS -->
         <!-- Load javascripts at bottom, this will reduce page load time -->
-        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;        ?>/js/jquery-1.8.3.min.js"></script>-->
+        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;         ?>/js/jquery-1.8.3.min.js"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>-->
-        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;        ?>/assets/bootstrap/js/bootstrap.min.js"></script>-->
-        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/js/jquery.blockui.js"></script>-->
-        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/js/jquery.cookie.js"></script>-->
+        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>-->
+        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;         ?>/assets/bootstrap/js/bootstrap.min.js"></script>-->
+        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/js/jquery.blockui.js"></script>-->
+        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/js/jquery.cookie.js"></script>-->
         <!-- ie8 fixes -->
         <!--[if lt IE 9]>
         <script src="js/excanvas.js"></script>
         <script src="js/respond.js"></script>
         <![endif]-->
-<!--        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>-->
+<!--        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/assets/jquery-knob/js/jquery.knob.js"></script>
-<!--        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/flot/jquery.flot.js"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/flot/jquery.flot.resize.js"></script>
+<!--        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/flot/jquery.flot.js"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/flot/jquery.flot.resize.js"></script>
 
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/flot/jquery.flot.pie.js"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/flot/jquery.flot.stack.js"></script>
-        <script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/flot/jquery.flot.crosshair.js"></script>-->
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/flot/jquery.flot.pie.js"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/flot/jquery.flot.stack.js"></script>
+        <script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/flot/jquery.flot.crosshair.js"></script>-->
 
-        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;     ?>/js/jquery.peity.min.js"></script>-->
+        <!--<script src="<?php // echo Yii::app()->theme->baseUrl;      ?>/js/jquery.peity.min.js"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/jquery.mask.min.js"></script>
-        <!--<script type="text/javascript" src="<?php // echo Yii::app()->theme->baseUrl;     ?>/assets/uniform/jquery.uniform.min.js"></script>-->
+        <!--<script type="text/javascript" src="<?php // echo Yii::app()->theme->baseUrl;      ?>/assets/uniform/jquery.uniform.min.js"></script>-->
         <script src="<?php echo Yii::app()->theme->baseUrl; ?>/js/scripts.js"></script>
         <script>
             jQuery(document).ready(function() {

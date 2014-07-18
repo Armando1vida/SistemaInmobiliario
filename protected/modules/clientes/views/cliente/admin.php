@@ -49,7 +49,7 @@ $this->menu = array(
                     'telefono',
                     'celular',
                     'email',
-                    'tipo',
+//                    'tipo',
                     /*
                       'telefono',
                       'celular',

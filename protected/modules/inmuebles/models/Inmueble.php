@@ -182,7 +182,7 @@ class Inmueble extends BaseInmueble {
         $resultado.=' <p class="month">  Precio  </p>';
         $resultado.=' </div>';
         $resultado.=' <h2>';
-        $resultado.='<a href="/SistemaInmobiliario/inmuebles/inmueble/view?id='.$this->id.'">' . Util::truncateTwo($this->descripcion, 20) . '</a>';
+        $resultado.='<a href="/SistemaInmobiliario/inmuebles/inmueble/view?id='.$this->id.'">' . Util::truncateTwo($this->descripcion, 50) . '</a>';
         $resultado.='</h2>';
         $resultado.=' <p>';
         $resultado.='Propietario <a href="javascript:;">' . $this->cliente_propietario . '</a>';

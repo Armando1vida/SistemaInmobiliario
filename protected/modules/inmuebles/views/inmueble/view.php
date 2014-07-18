@@ -88,6 +88,13 @@
         <?php if ((!Yii::app()->user->isSuperAdmin) && Yii::app()->user->checkAccess('operador')) : ?>
             <a class="btn" href="/SistemaInmobiliario/inmuebles/inmueble/update?id=<?php echo $model->id ?>"><i class="icon-edit-sign"></i> Actualizar</a>
         <?php endif; ?>
+        <?php
+        $this->widget('bootstrap.widgets.TbButton', array(
+            //'buttonType'=>'submit',
+            'label' => Yii::t('AweCrud.app', 'Regresar'),
+            'htmlOptions' => array('onclick' => 'javascript:history.go(-1)')
+        ));
+        ?>
     </div> 
 
 </div>
