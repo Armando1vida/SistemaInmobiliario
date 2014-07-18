@@ -6,6 +6,17 @@
  */
 class Util {
 
+    public static function truncateTwo($string, $limit, $break = ".", $pad = "...") {
+
+        if (strlen($string) <= $limit) {
+            return $string;
+        } else {
+            $string = substr($string, 0, $limit) . $pad;
+        }
+
+        return $string;
+    }
+
     public static function Truncate($string, $limit, $break = ".", $pad = "...") {
         // return with no change if string is shorter than $limit
         if (strlen($string) <= $limit)

@@ -26,7 +26,7 @@
                         <div class="thumbnail">
                             <div class="item">
                                 <a class="fancybox-button" title="<?php echo $image->nombre; ?>"  href="<?php echo $image->ruta ?>" data-gallery="gallery">
-                                    <img  src="<?php echo $image->ruta; ?>" alt="Photo">
+                                    <img   src="<?php echo $image->ruta; ?>" alt="Photo">
                                 </a>
                             </div>
                         </div>
@@ -57,6 +57,7 @@
                 <div class="span4">
                     <h4>Detalle</h4>
                     <p>
+                        <strong>Estado :</strong> <?php echo $model->estadoinmuebleformato; ?><br>
                         <strong>Precio :</strong> <?php echo $model->precio; ?><br>
                         <strong>Num. habitaciones :</strong> <?php echo $model->numero_habitacion; ?><br>
                         <strong>Num. baños :</strong> <?php echo $model->numero_banio; ?><br>
@@ -84,7 +85,9 @@
         </div>
         <br>
         <?php // echo Chtml::link('<i class="icon-edit-sign"></i> Actualizar', array('update', 'id' => $model->id), array('class' => 'btn')); ?>
-        <a class="btn" href="/SistemaInmobiliario/inmuebles/inmueble/update?id=<?php echo $model->id ?>"><i class="icon-edit-sign"></i> Actualizar</a>
+        <?php if ((!Yii::app()->user->isSuperAdmin) && Yii::app()->user->checkAccess('operador')) : ?>
+            <a class="btn" href="/SistemaInmobiliario/inmuebles/inmueble/update?id=<?php echo $model->id ?>"><i class="icon-edit-sign"></i> Actualizar</a>
+        <?php endif; ?>
     </div> 
 
 </div>

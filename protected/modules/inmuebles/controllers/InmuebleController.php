@@ -186,9 +186,6 @@ class InmuebleController extends AweController {
         ));
     }
 
-    /**
-     * Manages all models.
-     */
     public function actionGalery() {
         $model = new Inmueble('search');
         $model->unsetAttributes(); // clear any default values
@@ -198,6 +195,54 @@ class InmuebleController extends AweController {
         $this->render('galery', array(
             'model' => $model,
         ));
+    }
+
+    public function actionAjaxComprar() {
+        if (Yii::app()->request->isAjaxRequest) {
+            $result = array();
+            $id = $_GET['id'];
+//            $model = $this->loadModel($id);
+            $enable = Inmueble::model()->updateByPk($id, array('estado_inmueble' => Inmueble::ESTADO_VENDIDO, 'fecha_negocio' => Util::FechaActual(), 'cliente_negocio_id' => Yii::app()->user->id));
+            if ($enable) {
+                $result['success'] = true;
+            } else {
+                $result['success'] = false;
+                $result['message'] = 'No se pudo concretar la compra, intentelo mas tarde.';
+            }
+            echo json_encode($result);
+        }
+    }
+
+    public function actionAjaxArrendar() {
+        if (Yii::app()->request->isAjaxRequest) {
+            $result = array();
+            $id = $_GET['id'];
+//            $model = $this->loadModel($id);
+            $enable = Inmueble::model()->updateByPk($id, array('estado_inmueble' => Inmueble::ESTADO_ARRENDADO, 'fecha_negocio' => Util::FechaActual(), 'cliente_negocio_id' => Yii::app()->user->id));
+            if ($enable) {
+                $result['success'] = true;
+            } else {
+                $result['success'] = false;
+                $result['message'] = 'No se pudo concretar el arriendo, intentelo mas tarde.';
+            }
+            echo json_encode($result);
+        }
+    }
+
+    public function actionAjaxReservar() {
+        if (Yii::app()->request->isAjaxRequest) {
+            $result = array();
+            $id = $_GET['id'];
+//            $model = $this->loadModel($id);
+            $enable = Inmueble::model()->updateByPk($id, array('estado_inmueble' => Inmueble::ESTADO_RESERVADO, 'fecha_negocio' => Util::FechaActual(), 'cliente_negocio_id' => Yii::app()->user->id));
+            if ($enable) {
+                $result['success'] = true;
+            } else {
+                $result['success'] = false;
+                $result['message'] = 'No se pudo concretar la reserva, intentelo mas tarde.';
+            }
+            echo json_encode($result);
+        }
     }
 
     public function actionError() {
