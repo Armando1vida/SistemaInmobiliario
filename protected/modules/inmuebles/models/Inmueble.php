@@ -182,7 +182,7 @@ class Inmueble extends BaseInmueble {
         $resultado.=' <p class="month">  Precio  </p>';
         $resultado.=' </div>';
         $resultado.=' <h2>';
-        $resultado.='<a href="#">' . Util::truncateTwo($this->descripcion, 20) . '</a>';
+        $resultado.='<a href="/SistemaInmobiliario/inmuebles/inmueble/view?id='.$this->id.'">' . Util::truncateTwo($this->descripcion, 20) . '</a>';
         $resultado.='</h2>';
         $resultado.=' <p>';
         $resultado.='Propietario <a href="javascript:;">' . $this->cliente_propietario . '</a>';
@@ -195,7 +195,7 @@ class Inmueble extends BaseInmueble {
         $resultado.='<p>';
         $resultado.=$this->detalleconformato();
         $resultado.=' </p>';
-        if ((!Yii::app()->user->isSuperAdmin) && Yii::app()->user->checkAccess('cliente')) {
+        if ((!Yii::app()->user->isSuperAdmin) && ( Yii::app()->user->checkAccess('cliente'))) {
             $resultado.=' <button  class="btn btn-info" onclick="js:comprar(' . $this->id . ')">Comprar</button>';
             $resultado.=' <button  class="btn btn-info" onclick="js:arrendar(' . $this->id . ')">Arrendar</button>';
             $resultado.=' <button  class="btn btn-info" onclick="js:reservar(' . $this->id . ')">Reservar</button>';
