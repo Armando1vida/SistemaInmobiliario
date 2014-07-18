@@ -19,7 +19,7 @@
         <div class="login-header">
             <!-- BEGIN LOGO -->
             <div id="logo" class="center">
-                <img src="<?php echo Yii::app()->theme->baseUrl; ?>/img/logo.png" alt="logo" class="center" />
+                <!--<img src="<?php // echo Yii::app()->theme->baseUrl; ?>/img/logo.png" alt="logo" class="center" />-->
             </div>
             <!-- END LOGO -->
         </div>
