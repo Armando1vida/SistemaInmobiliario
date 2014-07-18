@@ -6,40 +6,13 @@ class Menu {
 
     public static function getMenu($controller) {
         self::$_controller = $controller;
-//      <li class="has-sub open">
-//              <a href="javascript:;" class="">
-//                    <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
-//                    <span class="arrow open"></span>
-//              </a>
-//              <ul class="sub" style="display: block;">
-//                  <li><a class="" href="index.html">Dashboard 1</a></li>
-//                  <li><a class="" href="index_2.html">Dashboard 2</a></li>
-//              </ul>
-//      </li>
         $items = array(
-//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard', 'url' => Yii::app()->homeUrl),
-//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-//                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
-//                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
-//                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
-//                )),
-            array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Clientes', 'access' => 'action_cliente_admin','url' => array('/clientes/cliente')),
-            array('label' => '<span class="icon-box"> <i class="icon-home"></i></span> Inmueble','access' => 'action_inmueble_admin', 'url' => array('/inmuebles/inmueble')),
-            array('label' => '<span class="icon-box"> <i class="icon-camera"></i></span> Galeria', 'access' => 'action_inmueble_galery','url' => array('/inmuebles/inmueble/galery')),
-//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Inmueble<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-//                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
-//                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
-//                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
-//                )),
-//            array('label' => '<span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard<span class="arrow"></span>', 'url' => 'javascript:;', 'items' => array(
-//                    array('label' => 'Item1', 'url' => array('/llamadas/llamadaReporte')),
-//                    array('label' => 'Item2', 'url' => array('/sms/reports/reporteSms')),
-//                    array('label' => 'Item3', 'url' => array('/mail/mailReporte')),
-//                )),
+            array('label' => '<span class="icon-box"> <i class="icon-user"></i></span> Clientes', 'access' => 'action_cliente_admin', 'url' => array('/clientes/cliente')),
+            array('label' => '<span class="icon-box"> <i class="icon-home"></i></span> Inmueble', 'access' => 'action_inmueble_admin', 'url' => array('/inmuebles/inmueble')),
+            array('label' => '<span class="icon-box"> <i class="icon-camera"></i></span> Galeria', 'access' => 'action_inmueble_galery', 'url' => array('/inmuebles/inmueble/galery')),
         );
 
         return self::generateMenu($items);
-//        return $items;    
     }
 
     public static function getAdminMenu($controller) {
