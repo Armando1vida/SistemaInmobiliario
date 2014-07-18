@@ -60,7 +60,7 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
                 </div>
             </div>
 
-            <?php echo $form->textFieldRow($model, 'precio', array('maxlength' => 10)) ?>
+            <?php echo $form->textFieldRow($model, 'precio', array('maxlength' => 10, 'class' => 'money')) ?>
 
             <?php // echo $form->dropDownListRow($model, 'estado_inmueble', array('DISPONIBLE' => 'DISPONIBLE', 'VENDIDO' => 'VENDIDO', 'ARRENDADO' => 'ARRENDADO', 'RESERVADO' => 'RESERVADO',), array('placeholder' => '')) ?>
 
@@ -68,11 +68,11 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
 
 
             <?php // echo $form->textFieldRow($model, 'fecha_negocio') ?>
-            <?php echo $form->textFieldRow($model, 'numero_habitacion') ?>
+            <?php echo $form->textFieldRow($model, 'numero_habitacion', array('class' => 'numericsmall')) ?>
 
-            <?php echo $form->textFieldRow($model, 'numero_banio') ?>
+            <?php echo $form->textFieldRow($model, 'numero_banio', array('class' => 'numericsmall')) ?>
 
-            <?php echo $form->textFieldRow($model, 'numero_garage') ?>
+            <?php echo $form->textFieldRow($model, 'numero_garage', array('class' => 'numericsmall')) ?>
 
             <div class="control-group">
                 <div class="control-group">

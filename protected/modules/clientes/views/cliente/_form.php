@@ -36,11 +36,11 @@ $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
 
             <?php echo $form->textFieldRow($model, 'razon_social', array('maxlength' => 64)) ?>
 
-            <?php echo $form->textFieldRow($model, 'cedula', array('maxlength' => 20)) ?>
+            <?php echo $form->textFieldRow($model, 'cedula', array('maxlength' => 20,'class'=>'ID')) ?>
 
-            <?php echo $form->textFieldRow($model, 'telefono', array('maxlength' => 24)) ?>
+            <?php echo $form->textFieldRow($model, 'telefono', array('maxlength' => 24,'class'=>'telefono')) ?>
 
-            <?php echo $form->textFieldRow($model, 'celular', array('maxlength' => 24)) ?>
+            <?php echo $form->textFieldRow($model, 'celular', array('maxlength' => 24,'class'=>'celular')) ?>
 
             <?php echo $form->textFieldRow($model, 'email', array('maxlength' => 255)) ?>
 
