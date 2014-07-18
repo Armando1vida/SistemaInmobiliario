@@ -1,9 +1,10 @@
 ﻿# Host: localhost  (Version: 5.6.17)
-# Date: 2014-07-18 02:18:40
+# Date: 2014-07-18 02:45:03
 # Generator: MySQL-Front 5.3  (Build 4.133)
 
 /*!40101 SET NAMES utf8 */;
 
+USE `sistema_inmobiliario`;
 #
 # Data for table "cliente"
 #
@@ -31,7 +32,6 @@ INSERT INTO `cruge_authitemchild` (`parent`,`child`) VALUES ('cliente','action_c
 # Data for table "cruge_session"
 #
 
-INSERT INTO `cruge_session` (`idsession`,`iduser`,`created`,`expire`,`status`,`ipaddress`,`usagecount`,`lastusage`,`logoutdate`,`ipaddressout`) VALUES (50,1,1405660599,1405708599,0,'::1',1,1405660599,1405660661,'::1'),(51,3,1405660676,1405708676,0,'::1',1,1405660676,1405661019,'::1'),(52,4,1405661035,1405709035,0,'::1',1,1405661035,1405667739,'::1'),(53,3,1405667750,1405715750,0,'::1',1,1405667750,1405667790,'::1'),(54,1,1405667799,1405715799,0,'::1',1,1405667799,1405667816,'::1');
 
 #
 # Data for table "cruge_system"
