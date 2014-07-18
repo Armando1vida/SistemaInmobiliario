@@ -8,6 +8,9 @@
 # Structure for table "cliente"
 #
 
+CREATE DATABASE IF NOT EXISTS `sistema_inmobiliario` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `sistema_inmobiliario`;
+
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
